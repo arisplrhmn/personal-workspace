@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Workspace & CPNS</title>
+    <title>Personal Workspace</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -55,6 +55,11 @@
         .bottom-nav-btn.active {
             color: #38bdf8;
             background: rgba(56, 189, 248, 0.1);
+        }
+
+        .bottom-nav-btn.active-sociabuzz {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.15);
         }
 
         .bottom-nav-btn i {
@@ -144,6 +149,9 @@
                 <button onclick="switchTab('home')" id="tab-home" class="nav-btn active px-3.5 py-2 rounded-xl text-xs font-medium border border-gray-800 text-gray-300 flex items-center gap-1.5 transition">
                     <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Dashboard
                 </button>
+                <button onclick="switchTab('sociabuzz')" id="tab-sociabuzz" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-medium border border-emerald-500/40 text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 flex items-center gap-1.5 transition">
+                    <i data-lucide="coins" class="w-4 h-4 text-emerald-400"></i> SociaBuzz
+                </button>
                 <button onclick="switchTab('cpns')" id="tab-cpns" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-medium border border-emerald-500/30 text-emerald-400 flex items-center gap-1.5 transition">
                     <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i> CPNS Workspace
                 </button>
@@ -195,7 +203,10 @@
                 </div>
                 <!-- Tombol Pintas / Quick Actions -->
                 <div class="flex items-center gap-1.5 flex-wrap">
-                    <button onclick="switchTab('cpns')" class="px-2.5 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 border border-emerald-500/30 text-[11px] font-semibold flex items-center gap-1 transition">
+                    <button onclick="switchTab('sociabuzz')" class="px-2.5 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 border border-emerald-500/30 text-[11px] font-semibold flex items-center gap-1 transition">
+                        <i data-lucide="coins" class="w-3 h-3"></i> SociaBuzz Monetisasi
+                    </button>
+                    <button onclick="switchTab('cpns')" class="px-2.5 py-1.5 rounded-xl bg-teal-500/20 text-teal-400 hover:bg-teal-500/30 border border-teal-500/30 text-[11px] font-semibold flex items-center gap-1 transition">
                         <i data-lucide="award" class="w-3 h-3"></i> Workspace CPNS
                     </button>
                     <button onclick="switchTab('copier')" class="px-2.5 py-1.5 rounded-xl bg-sky-500/20 text-sky-400 hover:bg-sky-500/30 border border-sky-500/30 text-[11px] font-semibold flex items-center gap-1 transition">
@@ -283,6 +294,50 @@
 
             </div>
 
+        </section>
+
+        <!-- ================= SOCIABUZZ MONETISASI TAB ================= -->
+        <section id="sec-sociabuzz" class="hidden space-y-4">
+            <div class="glass-card rounded-2xl p-4 sm:p-6 border border-emerald-500/30 bg-gradient-to-br from-emerald-950/20 via-gray-900/80 to-teal-950/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                            <i data-lucide="coins" class="w-3.5 h-3.5"></i> SociaBuzz
+                        </span>
+                        <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                            arisplrfifteen @ FLMSALE
+                        </span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-black text-white pt-1">Pencatatan Penjualan</h2>
+                    <p class="text-xs text-gray-400">Kelola dan catat transaksi uang masuk dari penjualan ke rekening Anda.</p>
+                </div>
+                
+                <!-- Card Total Semua Uang Masuk -->
+                <div class="w-full sm:w-auto glass-card p-3.5 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 flex flex-col justify-center min-w-[220px]">
+                    <span class="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
+                        <i data-lucide="wallet" class="w-3.5 h-3.5"></i> Total
+                    </span>
+                    <span id="sociabuzzTotalRp" class="text-2xl font-black text-white mt-1">Rp 0</span>
+                    <span id="sociabuzzTotalCount" class="text-[10px] text-emerald-300/80 mt-0.5">0 Transaksi Penjualan</span>
+                </div>
+            </div>
+
+            <!-- Header List Transaksi & Tombol Tambah -->
+            <div class="flex items-center justify-between pt-1">
+                <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                    <i data-lucide="list-text" class="w-4 h-4 text-emerald-400"></i> Riwayat Penjualan arisplrfifteen @ FLMSALE
+                </h3>
+                <button onclick="openModalAddNew('modalSociaBuzz')" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-600/20 transition">
+                    <i data-lucide="plus" class="w-4 h-4"></i> Catat Penjualan
+                </button>
+            </div>
+
+            <!-- List Transaksi Penjualan -->
+            <div class="glass-card rounded-2xl p-4 space-y-3 border border-gray-800">
+                <div id="sociabuzzLog" class="space-y-2.5 max-h-[65vh] overflow-y-auto pr-1">
+                    <!-- Dynamic List via JS -->
+                </div>
+            </div>
         </section>
 
         <!-- ================= CPNS WORKSPACE TAB ================= -->
@@ -695,7 +750,7 @@
                             <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Pajak Tahunan</span>
                             <span id="pajakTahunanDays" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20">-</span>
                         </div>
-                        <div class="text-base font-black text-white font-mono" id="pajakTahunanDisplay">01 - 01 - 2027</div>
+                        <div class="text-base font-black text-white font-mono" id="pajakTahunanDisplay">01 Januari 2027</div>
                         <p class="text-[10px] text-gray-400" id="pajakTahunanDesc">Jatuh tempo pembayaran STNK tahunan</p>
                     </div>
 
@@ -705,7 +760,7 @@
                             <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Pajak 5 Tahunan</span>
                             <span id="pajak5TahunanDays" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">-</span>
                         </div>
-                        <div class="text-base font-black text-white font-mono" id="pajak5TahunanDisplay">01 - 01 - 2030</div>
+                        <div class="text-base font-black text-white font-mono" id="pajak5TahunanDisplay">01 Januari 2030</div>
                         <p class="text-[10px] text-gray-400" id="pajak5TahunanDesc">Jatuh tempo ganti plat kaleng nomor kendaraan</p>
                     </div>
                 </div>
@@ -951,9 +1006,15 @@
                 <span>HOME</span>
             </button>
 
+            <!-- Navigasi SociaBuzz Monetisasi Warna Hijau -->
+            <button onclick="switchTab('sociabuzz')" id="bottom-tab-sociabuzz" class="bottom-nav-btn text-emerald-400">
+                <i data-lucide="coins" class="text-emerald-400"></i>
+                <span class="text-emerald-400 font-bold">SociaBuzz</span>
+            </button>
+
             <!-- Navigasi CPNS Baru -->
             <button onclick="switchTab('cpns')" id="bottom-tab-cpns" class="bottom-nav-btn">
-                <i data-lucide="award" class="text-emerald-400"></i>
+                <i data-lucide="award" class="text-teal-400"></i>
                 <span>CPNS</span>
             </button>
 
@@ -1008,6 +1069,35 @@
     </div>
 
     <!-- ================= MODALS ================= -->
+
+    <!-- Modal SociaBuzz Monetisasi -->
+    <div id="modalSociaBuzz" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-emerald-500/40">
+            <h3 id="modalSociaBuzzTitle" class="text-base font-bold text-white flex items-center gap-2">
+                <i data-lucide="coins" class="w-4 h-4 text-emerald-400"></i> Catat Penjualan SociaBuzz
+            </h3>
+            <p class="text-[11px] text-gray-400">Catat transaksi penjualan arisplrfifteen @ FLMSALE yang masuk ke rekening Anda.</p>
+            <form onsubmit="handleSociaBuzzSubmit(event)" class="space-y-2.5">
+                <input type="hidden" id="editSociaBuzzId">
+                <div>
+                    <label class="text-[10px] text-gray-400 block mb-1">Judul Penjualan / Item</label>
+                    <input type="text" id="sbTitle" placeholder="Contoh: Film / Content FLMSALE #12" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="text-[10px] text-gray-400 block mb-1">Nominal Uang Masuk Ke Rekening (Rp)</label>
+                    <input type="number" id="sbNominal" placeholder="Contoh: 50000" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="text-[10px] text-gray-400 block mb-1">Tanggal Transaksi</label>
+                    <input type="date" id="sbDate" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
+                    <button type="button" onclick="closeModal('modalSociaBuzz')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
+                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-lg shadow-emerald-600/20">Simpan Penjualan</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Modal CPNS Dokumen -->
     <div id="modalCpnsDoc" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
@@ -1184,7 +1274,7 @@
             <h3 class="text-base font-bold text-white flex items-center gap-2">
                 <i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i> Edit Pajak Kendaraan
             </h3>
-            <p class="text-[11px] text-gray-400">Pilih tanggal jatuh tempo pajak. Format penulisan tampilan: <span class="text-white font-bold">DD - MM - YYYY</span>.</p>
+            <p class="text-[11px] text-gray-400">Pilih tanggal jatuh tempo pajak. Tampilan format: <span class="text-white font-bold">Tanggal NamaBulan Tahun</span>.</p>
             <form onsubmit="handlePajakSubmit(event)" class="space-y-3 pt-1">
                 <div>
                     <label class="text-[11px] font-bold text-sky-300 block mb-1">Tanggal Pajak Tahunan</label>
@@ -1530,7 +1620,12 @@
             cpnsCountdowns: [
                 { id: "cp-cd-1", title: "Pelaksanaan Ujian SKD CAT BKN", date: "2026-11-20" }
             ],
-            cpnsNotes: "Lokasi Ujian CAT: Kanreg BKN\nPakaian: Kemeja Putih Lengan Panjang, Celana Bahan Hitam, Sepatu Pantofel Hitam.\nWajib Bawa: KTP Asli & Kartu Ujian Peserta CASN!"
+            cpnsNotes: "Lokasi Ujian CAT: Kanreg BKN\nPakaian: Kemeja Putih Lengan Panjang, Celana Bahan Hitam, Sepatu Pantofel Hitam.\nWajib Bawa: KTP Asli & Kartu Ujian Peserta CASN!",
+
+            /* SociaBuzz Monetisasi State */
+            sociabuzzLogs: [
+                { id: "sb-1", title: "Penjualan arisplrfifteen @ FLMSALE Pack #1", nominal: 150000, date: "2026-10-25" }
+            ]
         };
 
         let state = JSON.parse(localStorage.getItem('arisplrhmn_projects_db')) || defaultData;
@@ -1564,28 +1659,45 @@
         if(!state.cpnsCountdowns) state.cpnsCountdowns = defaultData.cpnsCountdowns;
         if(!state.cpnsNotes) state.cpnsNotes = defaultData.cpnsNotes;
 
+        /* Validasi SociaBuzz State */
+        if(!state.sociabuzzLogs) state.sociabuzzLogs = defaultData.sociabuzzLogs;
+
         function saveState() {
             localStorage.setItem('arisplrhmn_projects_db', JSON.stringify(state));
             renderApp();
         }
 
+        // Format tanggal ke format: Tanggal, Nama Bulan, Tahun (misal: 15 Oktober 2026)
         function formatDateIndo(dateStr) {
             if (!dateStr || dateStr === '-') return "-";
             const parts = dateStr.split('-');
             if (parts.length === 3) {
+                const day = parseInt(parts[2], 10);
+                const monthIndex = parseInt(parts[1], 10) - 1;
+                const year = parts[0];
+                const bulanIndo = [
+                    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+                ];
+                if (monthIndex >= 0 && monthIndex < 12) {
+                    return `${day} ${bulanIndo[monthIndex]} ${year}`;
+                }
                 return `${parts[2]} - ${parts[1]} - ${parts[0]}`;
             }
             return dateStr;
         }
 
         function switchTab(tabId) {
-            ['home', 'cpns', 'ari', 'mediafire', 'job', 'vehicle', 'bca', 'token', 'finance', 'countdown', 'notes_free', 'copier'].forEach(t => {
+            ['home', 'sociabuzz', 'cpns', 'ari', 'mediafire', 'job', 'vehicle', 'bca', 'token', 'finance', 'countdown', 'notes_free', 'copier'].forEach(t => {
                 const sec = document.getElementById(`sec-${t}`);
                 const tab = document.getElementById(`tab-${t}`);
                 const bTab = document.getElementById(`bottom-tab-${t}`);
                 if(sec) sec.classList.add('hidden');
                 if(tab) tab.classList.remove('active');
-                if(bTab) bTab.classList.remove('active');
+                if(bTab) {
+                    bTab.classList.remove('active');
+                    bTab.classList.remove('active-sociabuzz');
+                }
             });
 
             const targetSec = document.getElementById(`sec-${tabId}`);
@@ -1594,7 +1706,13 @@
 
             if(targetSec) targetSec.classList.remove('hidden');
             if(targetTab) targetTab.classList.add('active');
-            if(targetBTab) targetBTab.classList.add('active');
+            if(targetBTab) {
+                if(tabId === 'sociabuzz') {
+                    targetBTab.classList.add('active-sociabuzz');
+                } else {
+                    targetBTab.classList.add('active');
+                }
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1613,6 +1731,14 @@
         }
 
         function openModal(modalId) {
+            if(modalId === 'modalSociaBuzz') {
+                if (!document.getElementById('editSociaBuzzId').value) {
+                    document.getElementById('modalSociaBuzzTitle').innerText = 'Catat Penjualan SociaBuzz';
+                    document.getElementById('sbTitle').value = '';
+                    document.getElementById('sbNominal').value = '';
+                    document.getElementById('sbDate').value = new Date().toISOString().split('T')[0];
+                }
+            }
             if(modalId === 'modalMediafire') {
                 populateCategoryDropdowns('mediafire');
                 if (!document.getElementById('editMediafireId').value) {
@@ -1763,6 +1889,7 @@
         }
 
         function openModalAddNew(modalId) {
+            if (modalId === 'modalSociaBuzz') document.getElementById('editSociaBuzzId').value = '';
             if (modalId === 'modalMediafire') document.getElementById('editMediafireId').value = '';
             if (modalId === 'modalCpnsDoc') document.getElementById('editCpnsDocId').value = '';
             if (modalId === 'modalCpnsRoutine') document.getElementById('editCpnsRoutineId').value = '';
@@ -1791,6 +1918,7 @@
 
         function renderApp() {
             renderHomeOverview();
+            renderSociaBuzz();
             renderCpnsWorkspace();
             renderAriSection();
             renderMediafire();
@@ -1804,6 +1932,96 @@
             renderNotes();
             renderCopier();
             lucide.createIcons();
+        }
+
+        /* ================= SOCIABUZZ MONETISASI LOGIC ================= */
+        function renderSociaBuzz() {
+            const logs = state.sociabuzzLogs || [];
+            const count = logs.length;
+            const totalNominal = logs.reduce((acc, item) => acc + Number(item.nominal || 0), 0);
+
+            const totalRpEl = document.getElementById('sociabuzzTotalRp');
+            if (totalRpEl) totalRpEl.innerText = `Rp ${totalNominal.toLocaleString('id-ID')}`;
+
+            const countEl = document.getElementById('sociabuzzTotalCount');
+            if (countEl) countEl.innerText = `${count} Transaksi Penjualan`;
+
+            const logContainer = document.getElementById('sociabuzzLog');
+            if (!logContainer) return;
+
+            if (logs.length === 0) {
+                logContainer.innerHTML = `<p class="text-xs text-gray-500 italic text-center py-6">Belum ada catatan penjualan arisplrfifteen @ FLMSALE.</p>`;
+                return;
+            }
+
+            logContainer.innerHTML = logs.map(sb => `
+                <div class="glass-card rounded-2xl p-4 border border-emerald-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-emerald-500/40 transition">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                                arisplrfifteen @ FLMSALE
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-white">${sb.title}</h4>
+                        <div class="flex flex-wrap items-center gap-3 pt-1 text-xs">
+                            <span class="text-emerald-400 font-extrabold text-sm sm:text-base">
+                                + Rp ${Number(sb.nominal).toLocaleString('id-ID')}
+                            </span>
+                            <span class="text-gray-400 font-medium text-[11px] flex items-center gap-1 bg-gray-900/80 px-2.5 py-1 rounded-lg border border-gray-800">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> ${formatDateIndo(sb.date)}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 self-end sm:self-center">
+                        <button onclick="openEditSociaBuzzModal('${sb.id}')" class="px-3 py-1.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-emerald-400 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1 transition" title="Edit Penjualan">
+                            <i data-lucide="edit-3" class="w-3.5 h-3.5"></i> Edit
+                        </button>
+                        <button onclick="deleteLog('sociabuzzLogs', '${sb.id}')" class="px-3 py-1.5 rounded-xl bg-gray-800 hover:bg-rose-950/40 text-rose-400 border border-rose-500/30 text-xs font-semibold flex items-center gap-1 transition" title="Hapus Penjualan">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> Hapus
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        function openEditSociaBuzzModal(id) {
+            const sb = (state.sociabuzzLogs || []).find(x => x.id === id);
+            if (!sb) return;
+            document.getElementById('editSociaBuzzId').value = sb.id;
+            document.getElementById('modalSociaBuzzTitle').innerText = 'Edit Penjualan SociaBuzz';
+            document.getElementById('sbTitle').value = sb.title || '';
+            document.getElementById('sbNominal').value = sb.nominal || '';
+            document.getElementById('sbDate').value = sb.date || new Date().toISOString().split('T')[0];
+            openModal('modalSociaBuzz');
+        }
+
+        function handleSociaBuzzSubmit(e) {
+            e.preventDefault();
+            const editId = document.getElementById('editSociaBuzzId').value;
+            const title = document.getElementById('sbTitle').value;
+            const nominal = Number(document.getElementById('sbNominal').value);
+            const date = document.getElementById('sbDate').value;
+
+            if (editId) {
+                const sb = state.sociabuzzLogs.find(x => x.id === editId);
+                if (sb) {
+                    sb.title = title;
+                    sb.nominal = nominal;
+                    sb.date = date;
+                }
+            } else {
+                state.sociabuzzLogs.unshift({
+                    id: 'sb-' + Date.now(),
+                    title,
+                    nominal,
+                    date
+                });
+            }
+
+            closeModal('modalSociaBuzz');
+            saveState();
         }
 
         /* ================= CPNS WORKSPACE LOGIC ================= */
