@@ -30,12 +30,6 @@
             color: #38bdf8;
         }
 
-        .sub-nav-btn.active {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
-            border-color: #10b981;
-            color: #34d399;
-        }
-
         /* Styling Navigasi Bawah Mobile */
         .bottom-nav-btn {
             display: flex;
@@ -127,7 +121,7 @@
             <!-- Brand / Logo -->
             <div class="flex items-center">
                 <h1 class="text-base sm:text-xl font-extrabold tracking-tight text-white">
-                    arisplrhmn <span class="text-xs font-normal text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">CPNS Ready</span>
+                    arisplrhmn <span class="text-xs font-normal text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Workspace</span>
                 </h1>
             </div>
 
@@ -151,18 +145,6 @@
                 </button>
                 <button onclick="switchTab('sociabuzz')" id="tab-sociabuzz" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-medium border border-emerald-500/40 text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 flex items-center gap-1.5 transition">
                     <i data-lucide="coins" class="w-4 h-4 text-emerald-400"></i> SociaBuzz
-                </button>
-                <button onclick="switchTab('cpns')" id="tab-cpns" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-medium border border-emerald-500/30 text-emerald-400 flex items-center gap-1.5 transition">
-                    <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i> CPNS Workspace
-                </button>
-                <button onclick="switchTab('ari')" id="tab-ari" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-medium border border-gray-800 text-gray-300 flex items-center gap-1.5 transition">
-                    <i data-lucide="book-open" class="w-4 h-4"></i> アリ
-                </button>
-                <button onclick="switchTab('mediafire')" id="tab-mediafire" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-medium border border-gray-800 text-gray-300 flex items-center gap-1.5 transition">
-                    <i data-lucide="flame" class="w-4 h-4 text-orange-500"></i> MediaFire
-                </button>
-                <button onclick="switchTab('job')" id="tab-job" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-medium border border-gray-800 text-gray-300 flex items-center gap-1.5 transition">
-                    <i data-lucide="briefcase" class="w-4 h-4"></i> Cari Kerja
                 </button>
                 <button onclick="switchTab('vehicle')" id="tab-vehicle" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-medium border border-gray-800 text-gray-300 flex items-center gap-1.5 transition">
                     <i data-lucide="bike" class="w-4 h-4"></i> Kendaraan
@@ -206,9 +188,6 @@
                     <button onclick="switchTab('sociabuzz')" class="px-2.5 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 border border-emerald-500/30 text-[11px] font-semibold flex items-center gap-1 transition">
                         <i data-lucide="coins" class="w-3 h-3"></i> SociaBuzz
                     </button>
-                    <button onclick="switchTab('cpns')" class="px-2.5 py-1.5 rounded-xl bg-teal-500/20 text-teal-400 hover:bg-teal-500/30 border border-teal-500/30 text-[11px] font-semibold flex items-center gap-1 transition">
-                        <i data-lucide="award" class="w-3 h-3"></i> CPNS
-                    </button>
                     <button onclick="switchTab('copier')" class="px-2.5 py-1.5 rounded-xl bg-sky-500/20 text-sky-400 hover:bg-sky-500/30 border border-sky-500/30 text-[11px] font-semibold flex items-center gap-1 transition">
                         <i data-lucide="copy" class="w-3 h-3"></i> Salin Teks
                     </button>
@@ -229,30 +208,10 @@
                 </div>
             </div>
 
-            <!-- GRID WIDGET CPNS & KENDARAAN & CATATAN -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- GRID WIDGET KENDARAAN & CATATAN -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 
-                <!-- Widget 1: Progress CPNS -->
-                <div class="glass-card rounded-2xl p-4 border border-emerald-500/20 space-y-2.5">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Persiapan CPNS</span>
-                        <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i>
-                    </div>
-                    <div>
-                        <div class="flex items-baseline justify-between">
-                            <span class="text-xs text-gray-400">Tahapan Selesai:</span>
-                            <span id="homeCpnsProgressText" class="text-xs sm:text-sm font-extrabold text-emerald-300">0 / 18</span>
-                        </div>
-                        <div class="w-full bg-gray-800 rounded-full h-2 mt-1.5 overflow-hidden">
-                            <div id="homeCpnsProgressBar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2 rounded-full" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                    <button onclick="switchTab('cpns')" class="text-xs font-semibold text-emerald-400 hover:underline inline-flex items-center gap-1">
-                        Buka Workspace CPNS <i data-lucide="chevron-right" class="w-3 h-3"></i>
-                    </button>
-                </div>
-
-                <!-- Widget 2: Status Honda Beat -->
+                <!-- Widget: Status Honda Beat -->
                 <div class="glass-card rounded-2xl p-4 border border-amber-500/20 space-y-2.5">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Cicilan Beat</span>
@@ -272,8 +231,8 @@
                     </button>
                 </div>
 
-                <!-- Widget 3: Mini Notes / Pengingat Bebas -->
-                <div class="glass-card rounded-2xl p-4 space-y-2.5 border border-gray-800 flex flex-col justify-between md:col-span-1">
+                <!-- Widget: Mini Notes / Pengingat Bebas -->
+                <div class="glass-card rounded-2xl p-4 space-y-2.5 border border-gray-800 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-1.5">
                             <h3 class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
@@ -338,350 +297,6 @@
                     <!-- Dynamic List via JS -->
                 </div>
             </div>
-        </section>
-
-        <!-- ================= CPNS WORKSPACE TAB ================= -->
-        <section id="sec-cpns" class="hidden space-y-4">
-            
-            <!-- CPNS Internal Navigation / Sub-Tabs -->
-            <div class="flex items-center justify-between gap-2 border-b border-gray-800 pb-2 overflow-x-auto">
-                <div class="flex items-center gap-2 min-w-max">
-                    <button onclick="switchCpnsSubTab('roadmap')" id="cpns-subtab-roadmap" class="sub-nav-btn active px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-800 text-gray-300 flex items-center gap-1.5 transition">
-                        <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Roadmap Seleksi
-                    </button>
-                    <button onclick="switchCpnsSubTab('materi')" id="cpns-subtab-materi" class="sub-nav-btn px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-800 text-gray-300 flex items-center gap-1.5 transition">
-                        <i data-lucide="book-open" class="w-3.5 h-3.5"></i> Materi CAT BKN
-                    </button>
-                    <button onclick="switchCpnsSubTab('dokumen')" id="cpns-subtab-dokumen" class="sub-nav-btn px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-800 text-gray-300 flex items-center gap-1.5 transition">
-                        <i data-lucide="folder-check" class="w-3.5 h-3.5"></i> Berkas Dokumen
-                    </button>
-                    <button onclick="switchCpnsSubTab('jadwal')" id="cpns-subtab-jadwal" class="sub-nav-btn px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-800 text-gray-300 flex items-center gap-1.5 transition">
-                        <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Jadwal & Catatan
-                    </button>
-                </div>
-            </div>
-
-            <!-- 1. SUB-TAB: ROADMAP SELEKSI PNS -->
-            <div id="cpns-sec-roadmap" class="space-y-4">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <div>
-                        <h2 class="text-base sm:text-lg font-extrabold text-white flex items-center gap-2">
-                            <i data-lucide="compass" class="w-5 h-5 text-emerald-400"></i> Roadmap Menjadi PNS (CPNS & PNS 100%)
-                        </h2>
-                        <p class="text-[11px] text-gray-400">Pantau progres 18 tahapan pendaftaran SSCASN hingga pelantikan resmi</p>
-                    </div>
-                    <div class="glass-card px-3.5 py-2 rounded-xl border border-emerald-500/20 flex items-center gap-3">
-                        <div>
-                            <span class="text-[10px] text-gray-400 block font-semibold">Progres Kelulusan</span>
-                            <span id="cpnsRoadmapProgressText" class="text-xs sm:text-sm font-extrabold text-emerald-400">0 / 18 Selesai</span>
-                        </div>
-                        <div class="w-20 bg-gray-800 rounded-full h-2 overflow-hidden">
-                            <div id="cpnsRoadmapProgressBar" class="bg-emerald-500 h-2 rounded-full transition-all duration-300" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl p-4 sm:p-5 text-gray-900 shadow-xl border border-gray-200 space-y-3">
-                    <div class="text-center border-b border-gray-200 pb-2">
-                        <h3 class="text-base sm:text-xl font-black text-gray-900 tracking-tight uppercase">TAHAPAN RESMI KELULUSAN PNS</h3>
-                        <p class="text-xs text-gray-600 font-medium">Langkah demi langkah dari pendaftaran SSCASN hingga PNS 100%</p>
-                    </div>
-                    <div class="space-y-2.5 max-h-[60vh] overflow-y-auto pr-1" id="cpnsRoadmapContainer"></div>
-                </div>
-            </div>
-
-            <!-- 2. SUB-TAB: MATERI CAT BKN -->
-            <div id="cpns-sec-materi" class="hidden space-y-4">
-                <div>
-                    <h2 class="text-base sm:text-lg font-extrabold text-white flex items-center gap-2">
-                        <i data-lucide="book-open" class="w-5 h-5 text-cyan-400"></i> Kisi-Kisi & Urutan Belajar CAT BKN
-                    </h2>
-                    <p class="text-[11px] text-gray-400">Pendalaman Materi SKD (TWK, TIU, TKP) & Latihan Soal Rutin</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <!-- TWK -->
-                    <div class="glass-card rounded-2xl p-4 space-y-3 border border-red-500/20">
-                        <div class="flex items-center justify-between border-b border-gray-800 pb-2">
-                            <h3 class="text-xs sm:text-sm font-bold text-red-400 flex items-center gap-1.5">
-                                <i data-lucide="flag" class="w-4 h-4"></i> TWK (Tes Wawasan Kebangsaan)
-                            </h3>
-                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-red-500/20 text-red-300">Min. 65</span>
-                        </div>
-                        <ul class="space-y-2 text-xs text-gray-300">
-                            <li class="bg-gray-900/60 p-2.5 rounded-xl border border-gray-800/80">
-                                <strong class="text-white block font-semibold mb-0.5">🇮🇩 Pancasila</strong>
-                                <p class="text-[11px] text-gray-400">Sila-sila, sejarah perumusan BPUPKI/PPKI, & 45 butir pengamalan.</p>
-                            </li>
-                            <li class="bg-gray-900/60 p-2.5 rounded-xl border border-gray-800/80">
-                                <strong class="text-white block font-semibold mb-0.5">📜 UUD 1945</strong>
-                                <p class="text-[11px] text-gray-400">Struktur, pasal penting, amandemen I-IV, & wewenang lembaga.</p>
-                            </li>
-                            <li class="bg-gray-900/60 p-2.5 rounded-xl border border-gray-800/80">
-                                <strong class="text-white block font-semibold mb-0.5">🤝 Bhinneka Tunggal Ika</strong>
-                                <p class="text-[11px] text-gray-400">Persatuan, keberagaman adat, kebudayaan, & integrasi nasional.</p>
-                            </li>
-                            <li class="bg-gray-900/60 p-2.5 rounded-xl border border-gray-800/80">
-                                <strong class="text-white block font-semibold mb-0.5">🏛️ NKRI</strong>
-                                <p class="text-[11px] text-gray-400">Sejarah perjuangan, pahlawan nasional, & sistem tata negara.</p>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- TIU -->
-                    <div class="glass-card rounded-2xl p-4 space-y-3 border border-sky-500/20">
-                        <div class="flex items-center justify-between border-b border-gray-800 pb-2">
-                            <h3 class="text-xs sm:text-sm font-bold text-sky-400 flex items-center gap-1.5">
-                                <i data-lucide="brain" class="w-4 h-4"></i> TIU (Tes Inteligensia Umum)
-                            </h3>
-                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-sky-500/20 text-sky-300">Min. 80</span>
-                        </div>
-                        <ul class="space-y-2 text-xs text-gray-300">
-                            <li class="bg-gray-900/60 p-2.5 rounded-xl border border-gray-800/80">
-                                <strong class="text-white block font-semibold mb-0.5">🗣️ Kemampuan Verbal</strong>
-                                <p class="text-[11px] text-gray-400">Analogi hubungan kata, Silogisme penarikan kesimpulan, & Analitis.</p>
-                            </li>
-                            <li class="bg-gray-900/60 p-2.5 rounded-xl border border-gray-800/80">
-                                <strong class="text-white block font-semibold mb-0.5">🔢 Kemampuan Numerik</strong>
-                                <p class="text-[11px] text-gray-400">Hitungan cepat, deret angka, perbandingan kuantitatif, & soal cerita.</p>
-                            </li>
-                            <li class="bg-gray-900/60 p-2.5 rounded-xl border border-gray-800/80">
-                                <strong class="text-white block font-semibold mb-0.5">📐 Kemampuan Figural</strong>
-                                <p class="text-[11px] text-gray-400">Pola gambar, analogi figural, ketidaksamaan, & rotasi 3D kubus.</p>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- TKP -->
-                    <div class="glass-card rounded-2xl p-4 space-y-3 border border-purple-500/20">
-                        <div class="flex items-center justify-between border-b border-gray-800 pb-2">
-                            <h3 class="text-xs sm:text-sm font-bold text-purple-400 flex items-center gap-1.5">
-                                <i data-lucide="user-check" class="w-4 h-4"></i> TKP (Tes Karakteristik Pribadi)
-                            </h3>
-                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">Min. 166</span>
-                        </div>
-                        <ul class="space-y-2 text-xs text-gray-300">
-                            <li class="bg-gray-900/60 p-2.5 rounded-xl border border-gray-800/80">
-                                <strong class="text-white block font-semibold mb-0.5">🤝 Pelayanan Publik & Sosbud</strong>
-                                <p class="text-[11px] text-gray-400">Sikap ramah, profesionalitas, kepuasan masyarakat, & perbauran adat.</p>
-                            </li>
-                            <li class="bg-gray-900/60 p-2.5 rounded-xl border border-gray-800/80">
-                                <strong class="text-white block font-semibold mb-0.5">💻 IT & Komunikasi</strong>
-                                <p class="text-[11px] text-gray-400">Pemanfaatan teknologi modern untuk efisiensi & efektivitas kerja ASN.</p>
-                            </li>
-                            <li class="bg-gray-900/60 p-2.5 rounded-xl border border-gray-800/80">
-                                <strong class="text-white block font-semibold mb-0.5">🛡️ Anti Radikalisme</strong>
-                                <p class="text-[11px] text-gray-400">Sikap toleransi, pencegahan paham ekstrem, & kesetiaan NKRI.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Rutinitas Latihan -->
-                    <div class="glass-card rounded-2xl p-4 space-y-3 border border-emerald-500/20">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Rutinitas Latihan Harian CPNS
-                            </h3>
-                            <button onclick="openModalAddNew('modalCpnsRoutine')" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center gap-1 shadow-lg shadow-emerald-600/20">
-                                <i data-lucide="plus" class="w-3.5 h-3.5"></i> Tambah
-                            </button>
-                        </div>
-                        <div id="cpnsRoutineList" class="space-y-2 max-h-64 overflow-y-auto pr-1"></div>
-                    </div>
-
-                    <!-- Target Kelulusan Tryout -->
-                    <div class="glass-card rounded-2xl p-4 space-y-3 border border-indigo-500/20">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                                <i data-lucide="target" class="w-4 h-4 text-indigo-400"></i> Target Kelulusan Tryout SKD
-                            </h3>
-                            <button onclick="openModalAddNew('modalCpnsTarget')" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center gap-1 shadow-lg shadow-indigo-600/20">
-                                <i data-lucide="plus" class="w-3.5 h-3.5"></i> Tambah Target
-                            </button>
-                        </div>
-                        <div id="cpnsTargetList" class="space-y-2 max-h-64 overflow-y-auto pr-1"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. SUB-TAB: BERKAS DOKUMEN SSCASN -->
-            <div id="cpns-sec-dokumen" class="hidden space-y-4">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div>
-                        <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-                            <i data-lucide="folder-check" class="w-5 h-5 text-amber-400"></i> Berkas & Dokumen Pendaftaran SSCASN
-                        </h2>
-                        <p class="text-[11px] text-gray-400">Simpan link Google Drive / MediaFire dokumen persyaratan CPNS kamu</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <button onclick="openModalCategoryManager('cpns')" class="px-3 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-amber-400 border border-amber-500/30 font-semibold text-xs flex items-center gap-1.5 transition">
-                            <i data-lucide="folder-cog" class="w-4 h-4"></i> Kelola Kategori
-                        </button>
-                        <button onclick="openModalAddNew('modalCpnsDoc')" class="px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs flex items-center gap-1.5 shadow-lg shadow-amber-600/20">
-                            <i data-lucide="plus" class="w-4 h-4"></i> Tambah Dokumen
-                        </button>
-                    </div>
-                </div>
-
-                <div class="glass-card p-3 rounded-2xl border border-gray-800 flex flex-col sm:flex-row gap-2.5 items-center justify-between">
-                    <div class="relative w-full sm:w-1/2">
-                        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
-                        <input type="text" id="cpnsDocSearchInput" oninput="renderCpnsDocs()" placeholder="Cari nama berkas atau link..." class="w-full bg-gray-900 border border-gray-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
-                    </div>
-                    <div class="w-full sm:w-auto flex items-center gap-2">
-                        <span class="text-xs text-gray-400 flex-shrink-0">Filter:</span>
-                        <select id="cpnsDocCategoryFilter" onchange="renderCpnsDocs()" class="w-full sm:w-auto bg-gray-900 border border-gray-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
-                        </select>
-                    </div>
-                </div>
-
-                <div id="cpnsDocList" class="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[60vh] overflow-y-auto pr-1"></div>
-            </div>
-
-            <!-- 4. SUB-TAB: JADWAL & CATATAN UJIAN -->
-            <div id="cpns-sec-jadwal" class="hidden space-y-4">
-                <div class="glass-card rounded-2xl p-4 border border-pink-500/20 space-y-3">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                                <i data-lucide="timer" class="w-4 h-4 text-pink-400"></i> Hitung Mundur Jadwal Ujian / Event CPNS
-                            </h3>
-                            <p class="text-[10px] text-gray-400">Pengingat pelaksanaan SKD, SKB, & Pengumuman Hasil</p>
-                        </div>
-                        <button onclick="openModalAddNew('modalCpnsCountdown')" class="px-3.5 py-1.5 rounded-xl bg-pink-600 hover:bg-pink-500 text-white font-semibold text-xs flex items-center gap-1 shadow-lg shadow-pink-600/20">
-                            <i data-lucide="plus" class="w-3.5 h-3.5"></i> Tambah Jadwal
-                        </button>
-                    </div>
-                    <div id="cpnsCountdownList" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
-                </div>
-
-                <div class="glass-card rounded-2xl p-4 sm:p-5 space-y-3">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                                <i data-lucide="notebook-pen" class="w-4 h-4 text-emerald-400"></i> Catatan Lokasi CAT, Formasi & Tips CPNS
-                            </h3>
-                            <p class="text-[10px] text-gray-400">Tulis lokasi ujian CAT BKN, syarat fisik, serta strategi pengerjaan soal</p>
-                        </div>
-                        <button onclick="saveCpnsNotes()" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-lg shadow-emerald-600/20">
-                            Simpan Catatan
-                        </button>
-                    </div>
-                    <textarea id="cpnsNotesInput" rows="10" placeholder="Contoh: 
-- Lokasi Ujian: Kantor Regional III BKN Bandung
-- Sesi 2, Pukul 10:00 WIB
-- Pakaian: Kemeja Putih Polos Lengan Panjang, Celana Bahan Hitam, Sepatu Pantofel Hitam
-- Tips TKP: Pilih jawaban yang paling berorientasi pada integritas & pelayanan terbaik (poin 5)" class="w-full bg-gray-900 border border-gray-800 rounded-xl p-3 text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-emerald-500 font-mono leading-relaxed"></textarea>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- ================= アリ (ARI / BELAJAR) TAB ================= -->
-        <section id="sec-ari" class="hidden space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <div>
-                    <h2 class="text-lg sm:text-xl font-extrabold text-white flex items-center gap-2">
-                        <i data-lucide="book-open" class="w-5 h-5 text-sky-400"></i> アリ - Ruang Belajar
-                    </h2>
-                    <p class="text-[11px] sm:text-xs text-gray-400">Rutinitas, Target, & Roadmap Ke Jepang Mandiri</p>
-                </div>
-            </div>
-
-            <!-- Urutan Belajar B. Jepang Mandiri Banner & Detail (Photo Roadmap) -->
-            <div class="bg-white rounded-2xl p-4 sm:p-6 text-gray-900 shadow-xl border border-gray-200 space-y-4">
-                <div class="text-center border-b border-gray-200 pb-3">
-                    <h3 class="text-lg sm:text-2xl font-black text-gray-900 tracking-tight uppercase">URUTAN BELAJAR B. JEPANG MANDIRI</h3>
-                    <p class="text-xs sm:text-sm text-gray-600 font-medium mt-0.5">Roadmap dari dasar sampai siap ke Jepang</p>
-                </div>
-
-                <!-- List Step Roadmap Dari Foto -->
-                <div class="space-y-3 max-h-[500px] overflow-y-auto pr-1" id="japanRoadmapContainer">
-                    <!-- Dynamic Items via JS -->
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- 1. Rutinitas Belajar -->
-                <div class="glass-card rounded-2xl p-4 space-y-3 border border-sky-500/20">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400"></i> Rutinitas Belajar
-                        </h3>
-                        <button onclick="openModalAddNew('modalStudyRoutine')" class="px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs flex items-center gap-1 shadow-lg shadow-sky-600/20">
-                            <i data-lucide="plus" class="w-3.5 h-3.5"></i> Tambah
-                        </button>
-                    </div>
-                    <div id="studyRoutineList" class="space-y-2 max-h-72 overflow-y-auto pr-1"></div>
-                </div>
-
-                <!-- 2. Target Belajar -->
-                <div class="glass-card rounded-2xl p-4 space-y-3 border border-indigo-500/20">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-                            <i data-lucide="target" class="w-4 h-4 text-indigo-400"></i> Target Belajar
-                        </h3>
-                        <button onclick="openModalAddNew('modalStudyTarget')" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center gap-1 shadow-lg shadow-indigo-600/20">
-                            <i data-lucide="plus" class="w-3.5 h-3.5"></i> Tambah Target
-                        </button>
-                    </div>
-                    <div id="studyTargetList" class="space-y-2 max-h-72 overflow-y-auto pr-1"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= MEDIAFIRE TAB ================= -->
-        <section id="sec-mediafire" class="hidden space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                    <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-                        <i data-lucide="flame" class="w-5 h-5 text-orange-500"></i> Tautan MediaFire
-                    </h2>
-                    <p class="text-[11px] sm:text-xs text-gray-400">Simpan, Cari, dan Kelola Link Berkas / Download MediaFire</p>
-                </div>
-                <div class="flex items-center gap-2">
-                    <button onclick="openModalCategoryManager('mediafire')" class="px-3 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-orange-400 border border-orange-500/30 font-semibold text-xs flex items-center gap-1.5 transition">
-                        <i data-lucide="folder-cog" class="w-4 h-4"></i> Kelola Kategori
-                    </button>
-                    <button onclick="openModalAddNew('modalMediafire')" class="px-3.5 py-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-semibold text-xs flex items-center gap-1.5 shadow-lg shadow-orange-600/20">
-                        <i data-lucide="plus" class="w-4 h-4"></i> Tambah Link
-                    </button>
-                </div>
-            </div>
-
-            <!-- Search Bar & Filter Kategori -->
-            <div class="glass-card p-3 rounded-2xl border border-gray-800 flex flex-col sm:flex-row gap-2.5 items-center justify-between">
-                <div class="relative w-full sm:w-1/2">
-                    <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
-                    <input type="text" id="mfSearchInput" oninput="renderMediafire()" placeholder="Cari nama file atau link MediaFire..." class="w-full bg-gray-900 border border-gray-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white focus:outline-none focus:border-orange-500">
-                </div>
-                <div class="w-full sm:w-auto flex items-center gap-2">
-                    <span class="text-xs text-gray-400 flex-shrink-0">Filter:</span>
-                    <select id="mfCategoryFilter" onchange="renderMediafire()" class="w-full sm:w-auto bg-gray-900 border border-gray-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-orange-500">
-                    </select>
-                </div>
-            </div>
-
-            <!-- Scrollable Link Container -->
-            <div id="mediafireList" class="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[70vh] overflow-y-auto pr-1"></div>
-        </section>
-
-        <!-- ================= CARI KERJA TAB ================= -->
-        <section id="sec-job" class="hidden space-y-4">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-                        <i data-lucide="briefcase" class="w-5 h-5 text-cyan-400"></i> Catat Cari Kerja
-                    </h2>
-                    <p class="text-[11px] sm:text-xs text-gray-400">Riwayat Lamaran</p>
-                </div>
-                <button onclick="openModalAddNew('modalJob')" class="px-3.5 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs flex items-center gap-1.5 shadow-lg shadow-cyan-600/20">
-                    <i data-lucide="plus" class="w-4 h-4"></i> Tambah
-                </button>
-            </div>
-            <div id="jobList" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
         </section>
 
         <!-- ================= KENDARAAN TAB ================= -->
@@ -1012,25 +627,7 @@
                 <span class="text-emerald-400 font-bold">SociaBuzz</span>
             </button>
 
-            <!-- Navigasi CPNS Baru -->
-            <button onclick="switchTab('cpns')" id="bottom-tab-cpns" class="bottom-nav-btn">
-                <i data-lucide="award" class="text-teal-400"></i>
-                <span>CPNS</span>
-            </button>
-
             <!-- Navigasi Lainnya -->
-            <button onclick="switchTab('ari')" id="bottom-tab-ari" class="bottom-nav-btn">
-                <i data-lucide="book-open"></i>
-                <span>アリ</span>
-            </button>
-            <button onclick="switchTab('mediafire')" id="bottom-tab-mediafire" class="bottom-nav-btn">
-                <i data-lucide="flame" class="text-orange-400"></i>
-                <span>MediaFire</span>
-            </button>
-            <button onclick="switchTab('job')" id="bottom-tab-job" class="bottom-nav-btn">
-                <i data-lucide="briefcase"></i>
-                <span>Work</span>
-            </button>
             <button onclick="switchTab('vehicle')" id="bottom-tab-vehicle" class="bottom-nav-btn">
                 <i data-lucide="bike"></i>
                 <span>Beat</span>
@@ -1099,175 +696,6 @@
         </div>
     </div>
 
-    <!-- Modal CPNS Dokumen -->
-    <div id="modalCpnsDoc" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-gray-700">
-            <h3 id="modalCpnsDocTitle" class="text-base font-bold text-white flex items-center gap-2">
-                <i data-lucide="folder-plus" class="w-4 h-4 text-amber-500"></i> Simpan Dokumen SSCASN
-            </h3>
-            <form onsubmit="handleCpnsDocSubmit(event)" class="space-y-2.5">
-                <input type="hidden" id="editCpnsDocId">
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Nama Dokumen</label>
-                    <input type="text" id="cpnsDocName" placeholder="Contoh: KTP Asli / Ijazah S1" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Kategori Dokumen</label>
-                    <select id="cpnsDocCategory" class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
-                    </select>
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Link Tautan File (Drive / MediaFire)</label>
-                    <input type="url" id="cpnsDocUrl" placeholder="https://..." required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                </div>
-                <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
-                    <button type="button" onclick="closeModal('modalCpnsDoc')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
-                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-amber-600 text-white text-xs font-semibold">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal CPNS Rutinitas -->
-    <div id="modalCpnsRoutine" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-gray-700">
-            <h3 id="modalCpnsRoutineTitle" class="text-base font-bold text-white">Tambah Rutinitas CAT CPNS</h3>
-            <form onsubmit="handleCpnsRoutineSubmit(event)" class="space-y-2.5">
-                <input type="hidden" id="editCpnsRoutineId">
-                <input type="text" id="cpnsRoutineText" placeholder="Aktivitas (misal: Kerjakan 30 Soal TIU Deret)" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
-                    <button type="button" onclick="closeModal('modalCpnsRoutine')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
-                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-semibold">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal CPNS Target -->
-    <div id="modalCpnsTarget" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-gray-700">
-            <h3 id="modalCpnsTargetTitle" class="text-base font-bold text-white">Tambah Target Tryout CPNS</h3>
-            <form onsubmit="handleCpnsTargetSubmit(event)" class="space-y-2.5">
-                <input type="hidden" id="editCpnsTargetId">
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Materi / Skor Target</label>
-                    <input type="text" id="cpnsTargetTitleInput" placeholder="Contoh: Tryout SKD Skor > 400" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Target Tanggal</label>
-                    <input type="date" id="cpnsTargetDateInput" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                </div>
-                <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
-                    <button type="button" onclick="closeModal('modalCpnsTarget')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
-                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-indigo-600 text-white text-xs font-semibold">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal CPNS Countdown Event -->
-    <div id="modalCpnsCountdown" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-gray-700">
-            <h3 id="modalCpnsCdTitle" class="text-base font-bold text-white">Tambah Jadwal Event CPNS</h3>
-            <form onsubmit="handleCpnsCountdownSubmit(event)" class="space-y-2.5">
-                <input type="hidden" id="editCpnsCdId">
-                <input type="text" id="cpnsCdTitle" placeholder="Nama Event (misal: Ujian SKD CAT BKN)" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                <input type="date" id="cpnsCdDate" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
-                    <button type="button" onclick="closeModal('modalCpnsCountdown')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
-                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-pink-600 text-white text-xs font-semibold">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal MediaFire (Tambah & Edit) -->
-    <div id="modalMediafire" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-gray-700">
-            <h3 id="modalMediafireTitle" class="text-base font-bold text-white flex items-center gap-2">
-                <i data-lucide="flame" class="w-4 h-4 text-orange-500"></i> Simpan Link MediaFire
-            </h3>
-            <form onsubmit="handleMediafireSubmit(event)" class="space-y-2.5">
-                <input type="hidden" id="editMediafireId">
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Nama File / Berkas</label>
-                    <input type="text" id="mfName" placeholder="Contoh: Mod APK / Dokumen N3" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Kategori</label>
-                    <select id="mfCategory" class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-orange-500">
-                    </select>
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Link MediaFire</label>
-                    <input type="url" id="mfUrl" placeholder="https://www.mediafire.com/file/..." required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                </div>
-                <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
-                    <button type="button" onclick="closeModal('modalMediafire')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
-                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-orange-600 text-white text-xs font-semibold">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal Kelola Kategori MediaFire / CPNS -->
-    <div id="modalCategories" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-4 border border-gray-700">
-            <div class="flex justify-between items-center">
-                <h3 id="modalCatTitle" class="text-base font-bold text-white flex items-center gap-2">
-                    <i data-lucide="folder-cog" class="w-4 h-4 text-orange-400"></i> Kelola Kategori
-                </h3>
-                <button onclick="closeModal('modalCategories')" class="text-gray-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
-            </div>
-            <form onsubmit="handleAddCategory(event)" class="flex gap-2">
-                <input type="hidden" id="currentCategoryContext" value="mediafire">
-                <input type="text" id="newCatName" placeholder="Nama Kategori Baru" required class="flex-grow bg-gray-900 border border-gray-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-orange-500">
-                <button type="submit" class="px-3 py-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-semibold text-xs flex-shrink-0">
-                    + Tambah
-                </button>
-            </form>
-            <div class="space-y-2 max-h-56 overflow-y-auto pr-1" id="categoryListContainer">
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Rutinitas Belajar (アリ) -->
-    <div id="modalStudyRoutine" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-gray-700">
-            <h3 id="modalStudyRoutineTitle" class="text-base font-bold text-white">Tambah Rutinitas Belajar</h3>
-            <form onsubmit="handleStudyRoutineSubmit(event)" class="space-y-2.5">
-                <input type="hidden" id="editStudyRoutineId">
-                <input type="text" id="studyRoutineText" placeholder="Aktivitas Belajar (misal: Belajar Kanji N3)" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
-                    <button type="button" onclick="closeModal('modalStudyRoutine')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
-                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-sky-600 text-white text-xs font-semibold">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal Target Belajar (アリ) -->
-    <div id="modalStudyTarget" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-gray-700">
-            <h3 id="modalStudyTargetTitle" class="text-base font-bold text-white">Tambah Target Belajar</h3>
-            <form onsubmit="handleStudyTargetSubmit(event)" class="space-y-2.5">
-                <input type="hidden" id="editStudyTargetId">
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Materi / Nama Target</label>
-                    <input type="text" id="studyTargetTitleInput" placeholder="Contoh: Hafal 100 Kosakata" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Target Selesai Sampai Tanggal</label>
-                    <input type="date" id="studyTargetDateInput" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                </div>
-                <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
-                    <button type="button" onclick="closeModal('modalStudyTarget')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
-                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-indigo-600 text-white text-xs font-semibold">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <!-- Modal Pajak Kendaraan -->
     <div id="modalPajak" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-gray-700">
@@ -1303,57 +731,6 @@
                 <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
                     <button type="button" onclick="closeModal('modalAddCopier')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
                     <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-sky-600 text-white text-xs font-semibold">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal Job -->
-    <div id="modalJob" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card rounded-2xl max-w-md w-full p-5 space-y-3 border border-gray-700 max-h-[90vh] overflow-y-auto">
-            <h3 id="modalJobTitle" class="text-base font-bold text-white">Tambah Lamaran Kerja</h3>
-            <form onsubmit="handleJobSubmit(event)" class="space-y-2.5">
-                <input type="hidden" id="editJobId">
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Nama Perusahaan</label>
-                    <input type="text" id="jobCompany" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2 text-xs text-white">
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Posisi</label>
-                    <input type="text" id="jobPos" class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2 text-xs text-white">
-                </div>
-                <div class="grid grid-cols-2 gap-2">
-                    <div>
-                        <label class="text-[10px] text-gray-400 block mb-1">Apply Kerja</label>
-                        <input type="date" id="jobApply" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2 text-xs text-white">
-                    </div>
-                    <div>
-                        <label class="text-[10px] text-gray-400 block mb-1">Ada Kabar?</label>
-                        <select id="jobKabar" class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2 text-xs text-white">
-                            <option value="Tidak">Tidak</option>
-                            <option value="Ada">Ada</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Interview</label>
-                    <input type="text" id="jobInterview" placeholder="Keterangan / -" class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2 text-xs text-white">
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Day 1 Kerja</label>
-                    <input type="text" id="jobDay1" placeholder="Keterangan / -" class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2 text-xs text-white">
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Gaji Pertama</label>
-                    <input type="text" id="jobGaji" placeholder="Keterangan / -" class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2 text-xs text-white">
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 block mb-1">Resign</label>
-                    <input type="text" id="jobResign" placeholder="Keterangan / -" class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2 text-xs text-white">
-                </div>
-                <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
-                    <button type="button" onclick="closeModal('modalJob')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
-                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-cyan-600 text-white text-xs font-semibold">Simpan</button>
                 </div>
             </form>
         </div>
@@ -1527,58 +904,10 @@
 
     <!-- SCRIPT UTAMA -->
     <script>
-        const initialJapanRoadmap = [
-            { id: 1, title: "HIRAGANA (ひらがな)", detail: "Kuasai 46 karakter hiragana • Baca & tulis", target: "Target: Lancar baca tulisan hiragana", status: "Belum" },
-            { id: 2, title: "KATAKANA (カタカナ)", detail: "Kuasai 46 karakter katakana • Baca & tulis", target: "Target: Lancar baca tulisan katakana", status: "Belum" },
-            { id: 3, title: "KOTOBA (ことば - Kosakata)", detail: "Bangun kosakata dasar • Sekitar 800-1500 kata umum", target: "Materi: Tema sehari-hari (keluarga, sekolah, kerja, dll)", status: "Belum" },
-            { id: 4, title: "BUNPO (文法 - Tata Bahasa)", detail: "Pelajari pola kalimat dasar • Partikel, bentuk masu/te, dll", target: "Materi: Minna no Nihongo 1 atau grammar dasar", status: "Belum" },
-            { id: 5, title: "KANJI (漢字)", detail: "Mulai dari kanji dasar • Belajar bertahap via Anki / RTK", target: "Target awal: ±300-500 kanji (N5-N4 level)", status: "Belum" },
-            { id: 6, title: "IKUT UJIAN JLPT (日本語能力試験)", detail: "Ujian resmi kemampuan bahasa Jepang • Mulai N5, N4, N3", target: "Target awal: N5 -> N4", status: "Belum" },
-            { id: 7, title: "JFT / JFT-BASIC (技能試験)", detail: "Ujian khusus untuk kerja di Jepang (Specified Skilled Worker)", target: "Materi: Bahasa + situasi kerja dasar", status: "Belum" },
-            { id: 8, title: "SSW (特定技能)", detail: "Program kerja resmi ke Jepang untuk bidang tertentu", target: "Persyaratan: Lulus JFT, lulus seleksi perusahaan", status: "Belum" },
-            { id: 9, title: "CARI JOB (仕事を探す)", detail: "Cari lowongan kerja di Jepang • Agen / Job portal", target: "Siapkan: CV, dokumen, & interview bahasa Jepang", status: "Belum" },
-            { id: 10, title: "MANDIRI (PERSIAPAN)", detail: "Siapkan dokumen, mental, keuangan, dan rencana hidup", target: "Dokumen: Paspor, visa kerja, sertifikat, dll", status: "Belum" },
-            { id: 11, title: "MCU (MEDICAL CHECK UP)", detail: "Pemeriksaan kesehatan lengkap sesuai standar Jepang", target: "Dilakukan di klinik / RS terunjuk", status: "Belum" },
-            { id: 12, title: "PASPOR", detail: "Buat atau perpanjang paspor • Masa berlaku cukup", target: "Minimal 1 tahun sebelum keberangkatan", status: "Belum" },
-            { id: 13, title: "TTD KONTRAK", detail: "Tanda tangan kontrak kerja dengan perusahaan Jepang", target: "Isi: Gaji, jobdesk, lokasi, durasi", status: "Belum" },
-            { id: 14, title: "PENGAJUAN COE (Certificate of Eligibility)", detail: "Perusahaan mengajukan COE ke imigrasi Jepang", target: "COE = izin resmi tinggal & kerja", status: "Belum" },
-            { id: 15, title: "COE TURUN", detail: "COE diterbitkan oleh imigrasi Jepang", target: "1-3 bulan setelah pengajuan", status: "Belum" },
-            { id: 16, title: "EKTLN (Exit Kas Negara)", detail: "Bayar biaya ke kas negara (PNBP) syarat visa kerja", target: "Dilakukan setelah COE turun", status: "Belum" },
-            { id: 17, title: "VISA", detail: "Ajukan visa kerja ke Kedutaan Jepang di Indonesia", target: "Syarat: Paspor, COE, foto, dokumen pendukung", status: "Belum" },
-            { id: 18, title: "TERBANG KE JEPANG ✈️", detail: "Persiapan akhir & keberangkatan • Mulai hidup di Jepang!", target: "Siapkan: koper, dokumen, mental & semangat!", status: "Belum" }
-        ];
-
-        const initialCpnsRoadmap = [
-            { id: 1, title: "1. Membuat Akun Portal SSCASN BKN", detail: "Akses sscasn.bkn.go.id • Masukkan NIK, No KK, & data identitas KTP", target: "Syarat: KTP asli & data Dukcapil tervalidasi", status: "Belum" },
-            { id: 2, title: "2. Pengisian Biodata & Swafoto", detail: "Lengkapi data diri, email aktif, nomor HP, & upload swafoto (selfie)", target: "Pastikan muka terlihat jelas tanpa kacamata hitam", status: "Belum" },
-            { id: 3, title: "3. Pemilihan Instansi & Formasi Jabatan", detail: "Pilih 1 instansi & 1 formasi jabatan sesuai kualifikasi ijazah", target: "Cek syarat akreditasi & kualifikasi jurusan", status: "Belum" },
-            { id: 4, title: "4. Unggah Dokumen Persyaratan", detail: "Upload KTP, Ijazah, Transkrip, Pas Foto Merah, Surat Pernyataan & Lamaran", target: "Perhatikan format file (PDF/JPEG) & batas ukuran MB", status: "Belum" },
-            { id: 5, title: "5. Resume & Cetak Kartu Pendaftaran", detail: "Cek ulang semua isian data. Kirim resume & cetak Kartu Pendaftaran", target: "Data yang sudah di-submit tidak bisa diubah!", status: "Belum" },
-            { id: 6, title: "6. Seleksi Administrasi (Verifikasi)", detail: "Tim verifikator instansi memeriksa kelengkapan & keabsahan berkas", target: "Tunggu pengumuman MS (Memenuhi Syarat) / TMS", status: "Belum" },
-            { id: 7, title: "7. Masa Sanggah Administrasi", detail: "Pengajuan sanggahan jika terjadi kesalahan verifikasi dari panitia", target: "Hanya untuk kesalahan panitia, bukan revisi berkas", status: "Belum" },
-            { id: 8, title: "8. Cetak Kartu Peserta Ujian CASN", detail: "Unduh & cetak Kartu Peserta Ujian CASN dari akun SSCASN", target: "Wajib dibawa saat pelaksanaan Ujian CAT", status: "Belum" },
-            { id: 9, title: "9. Pelaksanaan Ujian SKD CAT BKN", detail: "CAT BKN: TWK (30 soal), TIU (35 soal), TKP (45 soal) - Total 110 Soal (100 Mnt)", target: "Target: Melampaui Passing Grade & masuk 3x Formasi", status: "Belum" },
-            { id: 10, title: "10. Pengumuman Hasil SKD", detail: "Penetapan peserta yang lolos ranking 3x kuota formasi untuk lanjut SKB", target: "Kelulusan SKD diumumkan resmi oleh BKN & Instansi", status: "Belum" },
-            { id: 11, title: "11. Pelaksanaan Ujian SKB (Kompetensi Bidang)", detail: "Ujian spesifik jabatan: CAT SKB BKN + Tes Tambahan (Wawancara/Fisik/Psikotes)", target: "Bobot SKB tinggi (60% dari total nilai akhir)", status: "Belum" },
-            { id: 12, title: "12. Pengumuman Kelulusan Akhir", detail: "Integrasi nilai SKD (40%) + SKB (60%) secara nasional oleh BKN", target: "Pengumuman resmi nama peserta terpilih", status: "Belum" },
-            { id: 13, title: "13. Pengisian DRH (Daftar Riwayat Hidup)", detail: "Peserta lulus mengunggah DRH & berkas pemberkasan NIP di SSCASN", target: "Termasuk SKCK, Surat Bebas Narkoba, & Surat Sehat", status: "Belum" },
-            { id: 14, title: "14. Penetapan NIP oleh BKN", detail: "Penerbitan Nomor Induk Pegawai (NIP) resmi oleh BKN", target: "Verifikasi dokumen oleh tim BKN pusat/kanreg", status: "Belum" },
-            { id: 15, title: "15. Penyerahan SK CPNS (80%)", detail: "Menerima SK CPNS & mulai SPMT (Surat Perintah Melaksanakan Tugas)", target: "Resmi menyandang status Calon Pegawai Negeri Sipil", status: "Belum" },
-            { id: 16, title: "16. Masa Percobaan CPNS (1 Tahun)", detail: "Menjalani masa kerja calon pegawai di unit kerja yang ditempatkan", target: "Gaji CPNS sebesar 80% dari gaji pokok PNS", status: "Belum" },
-            { id: 17, title: "17. Latsar (Pelatihan Dasar) & MCU Final", detail: "Pelatihan Dasar (Latsar), Rancangan & Aktualisasi, serta MCU Akhir", target: "Wajib lulus Latsar & sehat jasmani/rohani", status: "Belum" },
-            { id: 18, title: "18. Pengangkatan & Pelantikan PNS 100% 🇮🇩", detail: "Sumpah/Janji Pegawai Negeri Sipil & Penyerahan SK PNS 100%", target: "Selamat! Resmi menjadi Pegawai Negeri Sipil Penuh", status: "Belum" }
-        ];
-
         const defaultData = {
             cicilanBeat: 12,
             pajakTahunanDate: "2027-01-01",
             pajak5TahunanDate: "2030-01-01",
-            jobs: [
-                { id: "job-1", company: "SPPG Sayang 1 Cianjur", applyDate: "2026-08-19", kabar: "Tidak", interview: "-", day1: "-", gaji: "-", resign: "-" },
-                { id: "job-2", company: "ARTIK ICE Cianjur", applyDate: "2026-09-14", kabar: "Tidak", interview: "-", day1: "-", gaji: "-", resign: "-" },
-                { id: "job-3", company: "Bilas Wangi Laundry Cianjur [FREELANCE]", applyDate: "2026-09-27", kabar: "Ada", posisi: "Operator Packing Karpet", interview: "Senin, 28/9/26", day1: "Senin, 28/9/26", gaji: "Rabu, 7/10/26 [ 210RB | 1 Hari 70RB ]", resign: "Kamis, 1/10/26 [3 HARI KERJA]" }
-            ],
-            mediafireLinks: [],
             bensinLogs: [],
             oliLogs: [],
             parkirLogs: [],
@@ -1588,41 +917,11 @@
             tagihan: [{ id: "t-1", title: "Cicilan Beat", amount: "Rp 838.000 / bln" }],
             hutang: [],
             countdowns: [{ id: "cd-1", title: "Tahun Baru 2027", date: "2027-01-01" }],
-            studyRoutines: [
-                { id: "sr-1", text: "Belajar Bahasa Jepang 30 Menit", done: false }
-            ],
-            studyTargets: [
-                { id: "st-1", title: "Selesai Bab 1 Kanji", date: "2026-12-31" }
-            ],
-            japanRoadmap: initialJapanRoadmap,
             textCopier: [
                 { id: "cop-1", title: "Alamat Rumah", content: "Jl. Sayang No. 12, RT 02/RW 05, Cianjur, Jawa Barat 43211" },
                 { id: "cop-2", title: "Rekening BCA", content: "1234567890 a.n. Aris" }
             ],
             generalNotes: "Catatan Pribadi arisplrhmn.",
-            mediafireCategories: ["Umum", "Dokumen", "Aplikasi", "Game", "Video"],
-
-            /* CPNS State */
-            cpnsRoadmap: initialCpnsRoadmap,
-            cpnsDocs: [
-                { id: "cpns-doc-1", name: "KTP Asli & KK (Scan PDF)", url: "https://drive.google.com", category: "Identitas" },
-                { id: "cpns-doc-2", name: "Ijazah & Transkrip Nilai (Legalisir)", url: "https://drive.google.com", category: "Pendidikan" },
-                { id: "cpns-doc-3", name: "Pas Foto Merah 4x6", url: "https://drive.google.com", category: "Foto" }
-            ],
-            cpnsDocCategories: ["Identitas", "Pendidikan", "Foto", "Surat Pernyataan", "Sertifikat"],
-            cpnsRoutines: [
-                { id: "cp-sr-1", text: "Kerjakan 30 Soal TIU Numerik & Deret", done: false },
-                { id: "cp-sr-2", text: "Penalaran Kunci Jawaban TKP (Pelayanan Publik)", done: false }
-            ],
-            cpnsTargets: [
-                { id: "cp-st-1", title: "Passing Grade SKD > 420 Poin", date: "2026-11-15" }
-            ],
-            cpnsCountdowns: [
-                { id: "cp-cd-1", title: "Pelaksanaan Ujian SKD CAT BKN", date: "2026-11-20" }
-            ],
-            cpnsNotes: "Lokasi Ujian CAT: Kanreg BKN\nPakaian: Kemeja Putih Lengan Panjang, Celana Bahan Hitam, Sepatu Pantofel Hitam.\nWajib Bawa: KTP Asli & Kartu Ujian Peserta CASN!",
-
-            /* SociaBuzz Monetisasi State */
             sociabuzzLogs: [
                 { id: "sb-1", title: "Penjualan arisplrfifteen @ FLMSALE Pack #1", nominal: 150000, date: "2026-10-25" }
             ]
@@ -1630,18 +929,12 @@
 
         let state = JSON.parse(localStorage.getItem('arisplrhmn_projects_db')) || defaultData;
 
-        // Fallback state jika properti baru belum ada
-        if(!state.jobs) state.jobs = [];
-        if(!state.mediafireLinks) state.mediafireLinks = [];
-        if(!state.mediafireCategories) state.mediafireCategories = ["Umum", "Dokumen", "Aplikasi", "Game", "Video"];
+        // Fallback state jika properti belum ada
         if(!state.bcaLogs) state.bcaLogs = [];
         if(!state.tokenLogs) state.tokenLogs = [];
         if(!state.tagihan) state.tagihan = [];
         if(!state.hutang) state.hutang = [];
         if(!state.countdowns) state.countdowns = [];
-        if(!state.studyRoutines) state.studyRoutines = [];
-        if(!state.studyTargets) state.studyTargets = [];
-        if(!state.japanRoadmap) state.japanRoadmap = initialJapanRoadmap;
         if(!state.textCopier) state.textCopier = defaultData.textCopier;
         if(!state.bensinLogs) state.bensinLogs = [];
         if(!state.oliLogs) state.oliLogs = [];
@@ -1649,17 +942,6 @@
         if(!state.cuciLogs) state.cuciLogs = [];
         if(!state.pajakTahunanDate) state.pajakTahunanDate = "2027-01-01";
         if(!state.pajak5TahunanDate) state.pajak5TahunanDate = "2030-01-01";
-
-        /* Validasi CPNS State */
-        if(!state.cpnsRoadmap) state.cpnsRoadmap = initialCpnsRoadmap;
-        if(!state.cpnsDocs) state.cpnsDocs = defaultData.cpnsDocs;
-        if(!state.cpnsDocCategories) state.cpnsDocCategories = defaultData.cpnsDocCategories;
-        if(!state.cpnsRoutines) state.cpnsRoutines = defaultData.cpnsRoutines;
-        if(!state.cpnsTargets) state.cpnsTargets = defaultData.cpnsTargets;
-        if(!state.cpnsCountdowns) state.cpnsCountdowns = defaultData.cpnsCountdowns;
-        if(!state.cpnsNotes) state.cpnsNotes = defaultData.cpnsNotes;
-
-        /* Validasi SociaBuzz State */
         if(!state.sociabuzzLogs) state.sociabuzzLogs = defaultData.sociabuzzLogs;
 
         function saveState() {
@@ -1667,7 +949,7 @@
             renderApp();
         }
 
-        // Format tanggal ke format: Tanggal, Nama Bulan, Tahun (misal: 15 Oktober 2026)
+        // Format tanggal ke format: Tanggal, Nama Bulan, Tahun
         function formatDateIndo(dateStr) {
             if (!dateStr || dateStr === '-') return "-";
             const parts = dateStr.split('-');
@@ -1688,7 +970,7 @@
         }
 
         function switchTab(tabId) {
-            ['home', 'sociabuzz', 'cpns', 'ari', 'mediafire', 'job', 'vehicle', 'bca', 'token', 'finance', 'countdown', 'notes_free', 'copier'].forEach(t => {
+            ['home', 'sociabuzz', 'vehicle', 'bca', 'token', 'finance', 'countdown', 'notes_free', 'copier'].forEach(t => {
                 const sec = document.getElementById(`sec-${t}`);
                 const tab = document.getElementById(`tab-${t}`);
                 const bTab = document.getElementById(`bottom-tab-${t}`);
@@ -1716,20 +998,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function switchCpnsSubTab(subId) {
-            ['roadmap', 'materi', 'dokumen', 'jadwal'].forEach(s => {
-                const sec = document.getElementById(`cpns-sec-${s}`);
-                const btn = document.getElementById(`cpns-subtab-${s}`);
-                if(sec) sec.classList.add('hidden');
-                if(btn) btn.classList.remove('active');
-            });
-
-            const targetSec = document.getElementById(`cpns-sec-${subId}`);
-            const targetBtn = document.getElementById(`cpns-subtab-${subId}`);
-            if(targetSec) targetSec.classList.remove('hidden');
-            if(targetBtn) targetBtn.classList.add('active');
-        }
-
         function openModal(modalId) {
             if(modalId === 'modalSociaBuzz') {
                 if (!document.getElementById('editSociaBuzzId').value) {
@@ -1739,42 +1007,11 @@
                     document.getElementById('sbDate').value = new Date().toISOString().split('T')[0];
                 }
             }
-            if(modalId === 'modalMediafire') {
-                populateCategoryDropdowns('mediafire');
-                if (!document.getElementById('editMediafireId').value) {
-                    document.getElementById('modalMediafireTitle').innerText = 'Simpan Link MediaFire';
-                    document.getElementById('mfName').value = '';
-                    document.getElementById('mfUrl').value = '';
-                    document.getElementById('mfCategory').value = state.mediafireCategories[0] || 'Umum';
-                }
-            }
-            if(modalId === 'modalCpnsDoc') {
-                populateCategoryDropdowns('cpns');
-                if (!document.getElementById('editCpnsDocId').value) {
-                    document.getElementById('modalCpnsDocTitle').innerText = 'Simpan Dokumen SSCASN';
-                    document.getElementById('cpnsDocName').value = '';
-                    document.getElementById('cpnsDocUrl').value = '';
-                    document.getElementById('cpnsDocCategory').value = state.cpnsDocCategories[0] || 'Identitas';
-                }
-            }
             if(modalId === 'modalAddCopier') {
                 if (!document.getElementById('editCopierId').value) {
                     document.getElementById('modalCopierTitle').innerText = 'Tambah Salinan Text Baru';
                     document.getElementById('copierTitle').value = '';
                     document.getElementById('copierContent').value = '';
-                }
-            }
-            if(modalId === 'modalJob') {
-                if (!document.getElementById('editJobId').value) {
-                    document.getElementById('modalJobTitle').innerText = 'Tambah Lamaran Kerja';
-                    document.getElementById('jobCompany').value = '';
-                    document.getElementById('jobPos').value = '';
-                    document.getElementById('jobApply').value = new Date().toISOString().split('T')[0];
-                    document.getElementById('jobKabar').value = 'Tidak';
-                    document.getElementById('jobInterview').value = '';
-                    document.getElementById('jobDay1').value = '';
-                    document.getElementById('jobGaji').value = '';
-                    document.getElementById('jobResign').value = '';
                 }
             }
             if(modalId === 'modalToken') {
@@ -1812,39 +1049,6 @@
                     document.getElementById('modalCdTitle').innerText = 'Tambah Hitung Mundur Acara';
                     document.getElementById('cdTitle').value = '';
                     document.getElementById('cdDate').value = new Date().toISOString().split('T')[0];
-                }
-            }
-            if(modalId === 'modalCpnsCountdown') {
-                if (!document.getElementById('editCpnsCdId').value) {
-                    document.getElementById('modalCpnsCdTitle').innerText = 'Tambah Jadwal Event CPNS';
-                    document.getElementById('cpnsCdTitle').value = '';
-                    document.getElementById('cpnsCdDate').value = new Date().toISOString().split('T')[0];
-                }
-            }
-            if(modalId === 'modalCpnsRoutine') {
-                if (!document.getElementById('editCpnsRoutineId').value) {
-                    document.getElementById('modalCpnsRoutineTitle').innerText = 'Tambah Rutinitas CAT CPNS';
-                    document.getElementById('cpnsRoutineText').value = '';
-                }
-            }
-            if(modalId === 'modalCpnsTarget') {
-                if (!document.getElementById('editCpnsTargetId').value) {
-                    document.getElementById('modalCpnsTargetTitle').innerText = 'Tambah Target Tryout CPNS';
-                    document.getElementById('cpnsTargetTitleInput').value = '';
-                    document.getElementById('cpnsTargetDateInput').value = new Date().toISOString().split('T')[0];
-                }
-            }
-            if(modalId === 'modalStudyRoutine') {
-                if (!document.getElementById('editStudyRoutineId').value) {
-                    document.getElementById('modalStudyRoutineTitle').innerText = 'Tambah Rutinitas Belajar';
-                    document.getElementById('studyRoutineText').value = '';
-                }
-            }
-            if(modalId === 'modalStudyTarget') {
-                if (!document.getElementById('editStudyTargetId').value) {
-                    document.getElementById('modalStudyTargetTitle').innerText = 'Tambah Target Belajar';
-                    document.getElementById('studyTargetTitleInput').value = '';
-                    document.getElementById('studyTargetDateInput').value = new Date().toISOString().split('T')[0];
                 }
             }
             if(modalId === 'modalBensin') {
@@ -1890,20 +1094,12 @@
 
         function openModalAddNew(modalId) {
             if (modalId === 'modalSociaBuzz') document.getElementById('editSociaBuzzId').value = '';
-            if (modalId === 'modalMediafire') document.getElementById('editMediafireId').value = '';
-            if (modalId === 'modalCpnsDoc') document.getElementById('editCpnsDocId').value = '';
-            if (modalId === 'modalCpnsRoutine') document.getElementById('editCpnsRoutineId').value = '';
-            if (modalId === 'modalCpnsTarget') document.getElementById('editCpnsTargetId').value = '';
-            if (modalId === 'modalCpnsCountdown') document.getElementById('editCpnsCdId').value = '';
             if (modalId === 'modalAddCopier') document.getElementById('editCopierId').value = '';
-            if (modalId === 'modalJob') document.getElementById('editJobId').value = '';
             if (modalId === 'modalToken') document.getElementById('editTokenId').value = '';
             if (modalId === 'modalBca') document.getElementById('editBcaId').value = '';
             if (modalId === 'modalTagihan') document.getElementById('editTagihanId').value = '';
             if (modalId === 'modalHutang') document.getElementById('editHutangId').value = '';
             if (modalId === 'modalCountdown') document.getElementById('editCdId').value = '';
-            if (modalId === 'modalStudyRoutine') document.getElementById('editStudyRoutineId').value = '';
-            if (modalId === 'modalStudyTarget') document.getElementById('editStudyTargetId').value = '';
             if (modalId === 'modalBensin') document.getElementById('editBensinId').value = '';
             if (modalId === 'modalOli') document.getElementById('editOliId').value = '';
             if (modalId === 'modalParkir') document.getElementById('editParkirId').value = '';
@@ -1919,10 +1115,6 @@
         function renderApp() {
             renderHomeOverview();
             renderSociaBuzz();
-            renderCpnsWorkspace();
-            renderAriSection();
-            renderMediafire();
-            renderJobs();
             renderVehicleStats();
             renderVehicleLogs();
             renderBCA();
@@ -2021,806 +1213,6 @@
             }
 
             closeModal('modalSociaBuzz');
-            saveState();
-        }
-
-        /* ================= CPNS WORKSPACE LOGIC ================= */
-        function renderCpnsWorkspace() {
-            renderCpnsRoadmap();
-            renderCpnsMateriSection();
-            renderCpnsDocs();
-            renderCpnsCountdowns();
-            renderCpnsNotes();
-        }
-
-        function renderCpnsRoadmap() {
-            const container = document.getElementById('cpnsRoadmapContainer');
-            if(!container) return;
-
-            let completedCount = 0;
-
-            container.innerHTML = (state.cpnsRoadmap || initialCpnsRoadmap).map(step => {
-                if(step.status === 'Selesai') completedCount++;
-
-                let badgeColor = "bg-emerald-600 text-white";
-                if(step.id >= 6 && step.id <= 10) badgeColor = "bg-blue-600 text-white";
-                if(step.id >= 11 && step.id <= 14) badgeColor = "bg-indigo-600 text-white";
-                if(step.id >= 15 && step.id <= 18) badgeColor = "bg-teal-600 text-white";
-
-                let statusBadgeClass = "bg-gray-100 text-gray-700 border-gray-300";
-                if (step.status === "Proses") statusBadgeClass = "bg-amber-100 text-amber-800 border-amber-300";
-                if (step.status === "Selesai") statusBadgeClass = "bg-emerald-100 text-emerald-800 border-emerald-300";
-
-                return `
-                    <div class="p-3 sm:p-4 rounded-xl border border-gray-200 bg-gray-50 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 hover:shadow-md transition">
-                        <div class="flex items-start gap-3 flex-1">
-                            <span class="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${badgeColor} text-xs sm:text-sm font-black flex items-center justify-center shadow-sm">
-                                ${step.id}
-                            </span>
-                            <div class="space-y-1">
-                                <h4 class="text-xs sm:text-sm font-extrabold text-gray-900">${step.title}</h4>
-                                <p class="text-[11px] sm:text-xs text-gray-700 font-medium">${step.detail}</p>
-                                <p class="text-[10px] sm:text-[11px] text-gray-500 font-normal italic">${step.target}</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-1.5 self-end md:self-center">
-                            <select onchange="updateCpnsRoadmapStatus(${step.id}, this.value)" class="text-[11px] font-bold px-2 py-1 rounded-lg border ${statusBadgeClass} focus:outline-none cursor-pointer">
-                                <option value="Belum" ${step.status === 'Belum' ? 'selected' : ''}>⏳ Belum</option>
-                                <option value="Proses" ${step.status === 'Proses' ? 'selected' : ''}>🔄 Proses</option>
-                                <option value="Selesai" ${step.status === 'Selesai' ? 'selected' : ''}>✅ Selesai</option>
-                            </select>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            const progressText = document.getElementById('cpnsRoadmapProgressText');
-            if(progressText) progressText.innerText = `${completedCount} / 18 Selesai`;
-
-            const progressBar = document.getElementById('cpnsRoadmapProgressBar');
-            if(progressBar) {
-                const pct = Math.round((completedCount / 18) * 100);
-                progressBar.style.width = `${pct}%`;
-            }
-        }
-
-        function updateCpnsRoadmapStatus(stepId, newStatus) {
-            const step = state.cpnsRoadmap.find(s => s.id === stepId);
-            if (step) {
-                step.status = newStatus;
-                saveState();
-            }
-        }
-
-        function renderCpnsMateriSection() {
-            const routineList = document.getElementById('cpnsRoutineList');
-            if (routineList) {
-                routineList.innerHTML = (state.cpnsRoutines || []).map(sr => `
-                    <div class="flex items-center justify-between p-2.5 rounded-xl bg-gray-900/60 border border-gray-800">
-                        <div class="flex items-center gap-2">
-                            <input type="checkbox" ${sr.done ? 'checked' : ''} onchange="toggleCpnsRoutine('${sr.id}')" class="rounded border-gray-700 bg-gray-800 text-emerald-500 focus:ring-0 cursor-pointer">
-                            <span class="text-xs ${sr.done ? 'line-through text-gray-500' : 'text-gray-200'}">${sr.text}</span>
-                        </div>
-                        <div class="flex items-center gap-1">
-                            <button onclick="openEditCpnsRoutineModal('${sr.id}')" class="text-gray-400 hover:text-emerald-400 p-1" title="Edit">
-                                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                            </button>
-                            <button onclick="deleteLog('cpnsRoutines', '${sr.id}')" class="text-gray-400 hover:text-rose-400 p-1" title="Hapus">
-                                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                            </button>
-                        </div>
-                    </div>
-                `).join('') || `<p class="text-xs text-gray-500 italic text-center py-4">Belum ada rutinitas harian CPNS.</p>`;
-            }
-
-            const targetList = document.getElementById('cpnsTargetList');
-            if (targetList) {
-                const now = new Date();
-                targetList.innerHTML = (state.cpnsTargets || []).map(st => {
-                    const diff = new Date(st.date + "T00:00:00") - now;
-                    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-                    return `
-                        <div class="glass-card rounded-xl p-3 flex justify-between items-center border border-gray-800">
-                            <div>
-                                <h4 class="text-xs font-bold text-white">${st.title}</h4>
-                                <p class="text-[11px] text-indigo-400 font-semibold mt-0.5">
-                                    Target: <span class="font-mono text-gray-300">${formatDateIndo(st.date)}</span> 
-                                    <span class="text-[10px] text-gray-400 block">${days >= 0 ? days + ' Hari lagi' : 'Lewat ' + Math.abs(days) + ' Hari'}</span>
-                                </p>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <button onclick="openEditCpnsTargetModal('${st.id}')" class="text-gray-400 hover:text-indigo-400 p-1" title="Edit">
-                                    <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                                </button>
-                                <button onclick="deleteLog('cpnsTargets', '${st.id}')" class="text-gray-400 hover:text-rose-400 p-1" title="Hapus">
-                                    <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                }).join('') || `<p class="text-xs text-gray-500 italic text-center py-4">Belum ada target tryout CPNS.</p>`;
-            }
-        }
-
-        function toggleCpnsRoutine(id) {
-            const sr = state.cpnsRoutines.find(x => x.id === id);
-            if (sr) {
-                sr.done = !sr.done;
-                saveState();
-            }
-        }
-
-        function openEditCpnsRoutineModal(id) {
-            const sr = state.cpnsRoutines.find(x => x.id === id);
-            if (!sr) return;
-            document.getElementById('editCpnsRoutineId').value = sr.id;
-            document.getElementById('modalCpnsRoutineTitle').innerText = 'Edit Rutinitas Belajar';
-            document.getElementById('cpnsRoutineText').value = sr.text || '';
-            openModal('modalCpnsRoutine');
-        }
-
-        function handleCpnsRoutineSubmit(e) {
-            e.preventDefault();
-            const editId = document.getElementById('editCpnsRoutineId').value;
-            const text = document.getElementById('cpnsRoutineText').value;
-
-            if (editId) {
-                const sr = state.cpnsRoutines.find(x => x.id === editId);
-                if (sr) sr.text = text;
-            } else {
-                state.cpnsRoutines.unshift({
-                    id: 'cp-sr-' + Date.now(),
-                    text,
-                    done: false
-                });
-            }
-            closeModal('modalCpnsRoutine');
-            saveState();
-        }
-
-        function openEditCpnsTargetModal(id) {
-            const st = state.cpnsTargets.find(x => x.id === id);
-            if (!st) return;
-            document.getElementById('editCpnsTargetId').value = st.id;
-            document.getElementById('modalCpnsTargetTitle').innerText = 'Edit Target Tryout';
-            document.getElementById('cpnsTargetTitleInput').value = st.title || '';
-            document.getElementById('cpnsTargetDateInput').value = st.date || '';
-            openModal('modalCpnsTarget');
-        }
-
-        function handleCpnsTargetSubmit(e) {
-            e.preventDefault();
-            const editId = document.getElementById('editCpnsTargetId').value;
-            const title = document.getElementById('cpnsTargetTitleInput').value;
-            const date = document.getElementById('cpnsTargetDateInput').value;
-
-            if (editId) {
-                const st = state.cpnsTargets.find(x => x.id === editId);
-                if (st) {
-                    st.title = title;
-                    st.date = date;
-                }
-            } else {
-                state.cpnsTargets.unshift({
-                    id: 'cp-st-' + Date.now(),
-                    title,
-                    date
-                });
-            }
-            closeModal('modalCpnsTarget');
-            saveState();
-        }
-
-        function renderCpnsDocs() {
-            populateCategoryDropdowns('cpns');
-            const container = document.getElementById('cpnsDocList');
-            if(!container) return;
-
-            const searchQuery = (document.getElementById('cpnsDocSearchInput')?.value || '').toLowerCase().trim();
-            const selectedCategory = document.getElementById('cpnsDocCategoryFilter')?.value || 'Semua';
-
-            let filteredLinks = state.cpnsDocs || [];
-
-            if (selectedCategory !== 'Semua') {
-                filteredLinks = filteredLinks.filter(item => (item.category || 'Identitas') === selectedCategory);
-            }
-
-            if (searchQuery !== '') {
-                filteredLinks = filteredLinks.filter(item => 
-                    (item.name || '').toLowerCase().includes(searchQuery) || 
-                    (item.url || '').toLowerCase().includes(searchQuery) ||
-                    (item.category || '').toLowerCase().includes(searchQuery)
-                );
-            }
-
-            if(filteredLinks.length === 0) {
-                container.innerHTML = `<p class="text-xs text-gray-500 italic col-span-2 text-center py-8">Tidak ada dokumen CPNS yang cocok.</p>`;
-                return;
-            }
-
-            container.innerHTML = filteredLinks.map(item => `
-                <div class="glass-card rounded-2xl p-4 border border-amber-500/20 space-y-3 relative flex flex-col justify-between hover:border-amber-500/40 transition">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between gap-2">
-                            <div class="flex items-center gap-2 truncate">
-                                <div class="p-2 rounded-xl bg-amber-500/10 text-amber-400 flex-shrink-0">
-                                    <i data-lucide="file-check" class="w-4 h-4"></i>
-                                </div>
-                                <div class="truncate">
-                                    <h3 class="text-xs sm:text-sm font-bold text-white truncate" title="${item.name}">${item.name}</h3>
-                                    <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">${item.category || 'Identitas'}</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-1 flex-shrink-0">
-                                <button onclick="openEditCpnsDocModal('${item.id}')" class="text-gray-400 hover:text-amber-400 p-1 transition" title="Edit Dokumen">
-                                    <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                                </button>
-                                <button onclick="deleteCpnsDoc('${item.id}')" class="text-gray-500 hover:text-rose-400 p-1 transition" title="Hapus Dokumen">
-                                    <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-gray-900/90 border border-gray-800 rounded-xl p-2.5 text-xs text-amber-300 font-mono truncate select-all">
-                            ${item.url}
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2 pt-1">
-                        <button onclick="copyUrlDirect('${item.url}')" class="py-1.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 font-semibold text-xs flex items-center justify-center gap-1 transition">
-                            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Salin Link
-                        </button>
-                        <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs flex items-center justify-center gap-1 transition shadow-lg shadow-amber-600/20">
-                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Buka Tautan
-                        </a>
-                    </div>
-                </div>
-            `).join('');
-            lucide.createIcons();
-        }
-
-        function openEditCpnsDocModal(id) {
-            const m = state.cpnsDocs.find(x => x.id === id);
-            if(!m) return;
-            populateCategoryDropdowns('cpns');
-            document.getElementById('editCpnsDocId').value = m.id;
-            document.getElementById('modalCpnsDocTitle').innerText = 'Edit Link Dokumen SSCASN';
-            document.getElementById('cpnsDocName').value = m.name || '';
-            document.getElementById('cpnsDocUrl').value = m.url || '';
-            document.getElementById('cpnsDocCategory').value = m.category || 'Identitas';
-            openModal('modalCpnsDoc');
-        }
-
-        function handleCpnsDocSubmit(e) {
-            e.preventDefault();
-            const editId = document.getElementById('editCpnsDocId').value;
-            const name = document.getElementById('cpnsDocName').value;
-            const url = document.getElementById('cpnsDocUrl').value;
-            const category = document.getElementById('cpnsDocCategory').value || 'Identitas';
-
-            if (editId) {
-                const m = state.cpnsDocs.find(x => x.id === editId);
-                if (m) {
-                    m.name = name;
-                    m.url = url;
-                    m.category = category;
-                }
-            } else {
-                state.cpnsDocs.unshift({
-                    id: 'cpns-doc-' + Date.now(),
-                    name,
-                    url,
-                    category
-                });
-            }
-
-            closeModal('modalCpnsDoc');
-            saveState();
-        }
-
-        function deleteCpnsDoc(id) {
-            state.cpnsDocs = state.cpnsDocs.filter(x => x.id !== id);
-            saveState();
-        }
-
-        function renderCpnsCountdowns() {
-            const container = document.getElementById('cpnsCountdownList');
-            if (!container) return;
-            if (state.cpnsCountdowns.length === 0) {
-                container.innerHTML = `<p class="text-xs text-gray-500 italic col-span-2 text-center py-4">Belum ada jadwal pelaksanaan CPNS.</p>`;
-                return;
-            }
-
-            container.innerHTML = state.cpnsCountdowns.map(cd => {
-                const diff = new Date(cd.date + "T00:00:00") - new Date();
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                return `
-                    <div class="glass-card rounded-2xl p-4 border border-pink-500/20 space-y-2.5">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-xs sm:text-sm font-bold text-white">${cd.title}</h3>
-                                <span class="text-[10px] text-gray-400 font-mono">${formatDateIndo(cd.date)}</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <button onclick="openEditCpnsCountdownModal('${cd.id}')" class="text-gray-400 hover:text-pink-400 p-1 transition" title="Edit Jadwal">
-                                    <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                                </button>
-                                <button onclick="deleteLog('cpnsCountdowns', '${cd.id}')" class="text-gray-400 hover:text-rose-400 p-1 transition" title="Hapus Jadwal">
-                                    <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="flex items-baseline gap-2">
-                            <span class="text-2xl sm:text-3xl font-black text-pink-400">${days >= 0 ? days : 0}</span>
-                            <span class="text-xs text-gray-400">Hari tersisa</span>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function openEditCpnsCountdownModal(id) {
-            const cd = state.cpnsCountdowns.find(x => x.id === id);
-            if (!cd) return;
-            document.getElementById('editCpnsCdId').value = cd.id;
-            document.getElementById('modalCpnsCdTitle').innerText = 'Edit Jadwal Acara CPNS';
-            document.getElementById('cpnsCdTitle').value = cd.title;
-            document.getElementById('cpnsCdDate').value = cd.date;
-            openModal('modalCpnsCountdown');
-        }
-
-        function handleCpnsCountdownSubmit(e) {
-            e.preventDefault();
-            const editId = document.getElementById('editCpnsCdId').value;
-            const title = document.getElementById('cpnsCdTitle').value;
-            const date = document.getElementById('cpnsCdDate').value;
-
-            if(editId) {
-                const cd = state.cpnsCountdowns.find(x => x.id === editId);
-                if(cd) {
-                    cd.title = title;
-                    cd.date = date;
-                }
-            } else {
-                state.cpnsCountdowns.unshift({
-                    id: 'cp-cd-' + Date.now(),
-                    title, date
-                });
-            }
-            closeModal('modalCpnsCountdown');
-            saveState();
-        }
-
-        function renderCpnsNotes() {
-            const el = document.getElementById('cpnsNotesInput');
-            if(el) el.value = state.cpnsNotes || '';
-        }
-
-        function saveCpnsNotes() {
-            state.cpnsNotes = document.getElementById('cpnsNotesInput').value;
-            saveState();
-            alert('Catatan CPNS berhasil disimpan!');
-        }
-
-        /* ================= KATEGORI DOKUMEN GENERAL (MF & CPNS) ================= */
-        function populateCategoryDropdowns(context = 'mediafire') {
-            if(context === 'mediafire') {
-                const categories = state.mediafireCategories || ["Umum"];
-                const filterSelect = document.getElementById('mfCategoryFilter');
-                if (filterSelect && filterSelect.options.length <= 1) {
-                    const currentFilter = filterSelect.value || 'Semua';
-                    filterSelect.innerHTML = `<option value="Semua">Semua Kategori</option>` + categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
-                    filterSelect.value = currentFilter;
-                }
-                const modalSelect = document.getElementById('mfCategory');
-                if (modalSelect) {
-                    const currentVal = modalSelect.value;
-                    modalSelect.innerHTML = categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
-                    if (currentVal && categories.includes(currentVal)) {
-                        modalSelect.value = currentVal;
-                    }
-                }
-            } else if(context === 'cpns') {
-                const categories = state.cpnsDocCategories || ["Identitas"];
-                const filterSelect = document.getElementById('cpnsDocCategoryFilter');
-                if (filterSelect && filterSelect.options.length <= 1) {
-                    const currentFilter = filterSelect.value || 'Semua';
-                    filterSelect.innerHTML = `<option value="Semua">Semua Kategori</option>` + categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
-                    filterSelect.value = currentFilter;
-                }
-                const modalSelect = document.getElementById('cpnsDocCategory');
-                if (modalSelect) {
-                    const currentVal = modalSelect.value;
-                    modalSelect.innerHTML = categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
-                    if (currentVal && categories.includes(currentVal)) {
-                        modalSelect.value = currentVal;
-                    }
-                }
-            }
-        }
-
-        function openModalCategoryManager(context = 'mediafire') {
-            document.getElementById('currentCategoryContext').value = context;
-            const titleEl = document.getElementById('modalCatTitle');
-            if(context === 'cpns') {
-                titleEl.innerHTML = `<i data-lucide="folder-cog" class="w-4 h-4 text-amber-400"></i> Kelola Kategori Dokumen CPNS`;
-            } else {
-                titleEl.innerHTML = `<i data-lucide="folder-cog" class="w-4 h-4 text-orange-400"></i> Kelola Kategori MediaFire`;
-            }
-            renderCategoryManager();
-            openModal('modalCategories');
-        }
-
-        function renderCategoryManager() {
-            const context = document.getElementById('currentCategoryContext').value;
-            const container = document.getElementById('categoryListContainer');
-            if (!container) return;
-
-            const categories = context === 'cpns' ? (state.cpnsDocCategories || []) : (state.mediafireCategories || []);
-            container.innerHTML = categories.map((cat, index) => `
-                <div class="flex items-center justify-between p-2 rounded-xl bg-gray-900/80 border border-gray-800">
-                    <span class="text-xs text-white font-semibold">${cat}</span>
-                    <div class="flex items-center gap-1">
-                        <button onclick="editCategory(${index})" class="text-gray-400 hover:text-amber-400 p-1" title="Edit Kategori">
-                            <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                        </button>
-                        <button onclick="deleteCategory(${index})" class="text-gray-400 hover:text-rose-400 p-1" title="Hapus Kategori">
-                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-            lucide.createIcons();
-        }
-
-        function handleAddCategory(e) {
-            e.preventDefault();
-            const context = document.getElementById('currentCategoryContext').value;
-            const input = document.getElementById('newCatName');
-            const name = input.value.trim();
-            if (!name) return;
-
-            const list = context === 'cpns' ? state.cpnsDocCategories : state.mediafireCategories;
-
-            if (list.includes(name)) {
-                alert('Kategori sudah ada!');
-                return;
-            }
-
-            list.push(name);
-            input.value = '';
-            if(context === 'cpns') document.getElementById('cpnsDocCategoryFilter').innerHTML = '';
-            else document.getElementById('mfCategoryFilter').innerHTML = '';
-            saveState();
-            renderCategoryManager();
-        }
-
-        function editCategory(index) {
-            const context = document.getElementById('currentCategoryContext').value;
-            const list = context === 'cpns' ? state.cpnsDocCategories : state.mediafireCategories;
-            const oldName = list[index];
-            const newName = prompt('Edit nama kategori:', oldName);
-            if (!newName || newName.trim() === '' || newName === oldName) return;
-
-            const trimmedName = newName.trim();
-            list[index] = trimmedName;
-
-            if(context === 'cpns') {
-                (state.cpnsDocs || []).forEach(link => {
-                    if (link.category === oldName) link.category = trimmedName;
-                });
-                document.getElementById('cpnsDocCategoryFilter').innerHTML = '';
-            } else {
-                (state.mediafireLinks || []).forEach(link => {
-                    if (link.category === oldName) link.category = trimmedName;
-                });
-                document.getElementById('mfCategoryFilter').innerHTML = '';
-            }
-
-            saveState();
-            renderCategoryManager();
-        }
-
-        function deleteCategory(index) {
-            const context = document.getElementById('currentCategoryContext').value;
-            const list = context === 'cpns' ? state.cpnsDocCategories : state.mediafireCategories;
-            const catName = list[index];
-
-            if (list.length <= 1) {
-                alert('Minimal harus ada 1 kategori!');
-                return;
-            }
-
-            const fallbackCat = list.find((_, i) => i !== index) || list[0];
-            if(context === 'cpns') {
-                (state.cpnsDocs || []).forEach(link => {
-                    if (link.category === catName) link.category = fallbackCat;
-                });
-                document.getElementById('cpnsDocCategoryFilter').innerHTML = '';
-            } else {
-                (state.mediafireLinks || []).forEach(link => {
-                    if (link.category === catName) link.category = fallbackCat;
-                });
-                document.getElementById('mfCategoryFilter').innerHTML = '';
-            }
-
-            list.splice(index, 1);
-            saveState();
-            renderCategoryManager();
-        }
-
-        /* ================= MEDIAFIRE LOGIC ================= */
-        function renderMediafire() {
-            populateCategoryDropdowns('mediafire');
-            const container = document.getElementById('mediafireList');
-            if(!container) return;
-
-            const searchQuery = (document.getElementById('mfSearchInput')?.value || '').toLowerCase().trim();
-            const selectedCategory = document.getElementById('mfCategoryFilter')?.value || 'Semua';
-
-            let filteredLinks = state.mediafireLinks || [];
-
-            if (selectedCategory !== 'Semua') {
-                filteredLinks = filteredLinks.filter(item => (item.category || 'Umum') === selectedCategory);
-            }
-
-            if (searchQuery !== '') {
-                filteredLinks = filteredLinks.filter(item => 
-                    (item.name || '').toLowerCase().includes(searchQuery) || 
-                    (item.url || '').toLowerCase().includes(searchQuery) ||
-                    (item.category || '').toLowerCase().includes(searchQuery)
-                );
-            }
-
-            if(filteredLinks.length === 0) {
-                container.innerHTML = `<p class="text-xs text-gray-500 italic col-span-2 text-center py-8">Tidak ada tautan MediaFire yang cocok.</p>`;
-                return;
-            }
-
-            container.innerHTML = filteredLinks.map(item => `
-                <div class="glass-card rounded-2xl p-4 border border-orange-500/20 space-y-3 relative flex flex-col justify-between hover:border-orange-500/40 transition">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between gap-2">
-                            <div class="flex items-center gap-2 truncate">
-                                <div class="p-2 rounded-xl bg-orange-500/10 text-orange-400 flex-shrink-0">
-                                    <i data-lucide="flame" class="w-4 h-4"></i>
-                                </div>
-                                <div class="truncate">
-                                    <h3 class="text-xs sm:text-sm font-bold text-white truncate" title="${item.name}">${item.name}</h3>
-                                    <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">${item.category || 'Umum'}</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-1 flex-shrink-0">
-                                <button onclick="openEditMediafireModal('${item.id}')" class="text-gray-400 hover:text-orange-400 p-1 transition" title="Edit Link">
-                                    <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                                </button>
-                                <button onclick="deleteMediafire('${item.id}')" class="text-gray-500 hover:text-rose-400 p-1 transition" title="Hapus Link">
-                                    <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-gray-900/90 border border-gray-800 rounded-xl p-2.5 text-xs text-orange-300 font-mono truncate select-all">
-                            ${item.url}
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2 pt-1">
-                        <button onclick="copyUrlDirect('${item.url}')" class="py-1.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 font-semibold text-xs flex items-center justify-center gap-1 transition">
-                            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Salin Link
-                        </button>
-                        <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-semibold text-xs flex items-center justify-center gap-1 transition shadow-lg shadow-orange-600/20">
-                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Buka Link
-                        </a>
-                    </div>
-                </div>
-            `).join('');
-            lucide.createIcons();
-        }
-
-        function openEditMediafireModal(id) {
-            const m = state.mediafireLinks.find(x => x.id === id);
-            if(!m) return;
-            populateCategoryDropdowns('mediafire');
-            document.getElementById('editMediafireId').value = m.id;
-            document.getElementById('modalMediafireTitle').innerText = 'Edit Link MediaFire';
-            document.getElementById('mfName').value = m.name || '';
-            document.getElementById('mfUrl').value = m.url || '';
-            document.getElementById('mfCategory').value = m.category || 'Umum';
-            openModal('modalMediafire');
-        }
-
-        function handleMediafireSubmit(e) {
-            e.preventDefault();
-            const editId = document.getElementById('editMediafireId').value;
-            const name = document.getElementById('mfName').value;
-            const url = document.getElementById('mfUrl').value;
-            const category = document.getElementById('mfCategory').value || 'Umum';
-
-            if (editId) {
-                const m = state.mediafireLinks.find(x => x.id === editId);
-                if (m) {
-                    m.name = name;
-                    m.url = url;
-                    m.category = category;
-                }
-            } else {
-                state.mediafireLinks.unshift({
-                    id: 'mf-' + Date.now(),
-                    name,
-                    url,
-                    category
-                });
-            }
-
-            closeModal('modalMediafire');
-            saveState();
-        }
-
-        function deleteMediafire(id) {
-            state.mediafireLinks = state.mediafireLinks.filter(x => x.id !== id);
-            saveState();
-        }
-
-        /* ================= ARI SECTION LOGIC ================= */
-        function renderAriSection() {
-            const japanRoadmapContainer = document.getElementById('japanRoadmapContainer');
-            if (japanRoadmapContainer) {
-                japanRoadmapContainer.innerHTML = (state.japanRoadmap || initialJapanRoadmap).map(step => {
-                    let badgeColor = "bg-blue-600 text-white";
-                    if(step.id >= 6 && step.id <= 9) badgeColor = "bg-amber-600 text-white";
-                    if(step.id >= 10 && step.id <= 13) badgeColor = "bg-indigo-600 text-white";
-                    if(step.id >= 14 && step.id <= 18) badgeColor = "bg-teal-600 text-white";
-
-                    let statusBadgeClass = "bg-gray-100 text-gray-700 border-gray-300";
-                    if (step.status === "Proses") statusBadgeClass = "bg-amber-100 text-amber-800 border-amber-300";
-                    if (step.status === "Selesai") statusBadgeClass = "bg-emerald-100 text-emerald-800 border-emerald-300";
-
-                    return `
-                        <div class="p-3 sm:p-4 rounded-xl border border-gray-200 bg-gray-50 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 hover:shadow-md transition">
-                            <div class="flex items-start gap-3 flex-1">
-                                <span class="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${badgeColor} text-xs sm:text-sm font-black flex items-center justify-center shadow-sm">
-                                    ${step.id}
-                                </span>
-                                <div class="space-y-1">
-                                    <div class="flex flex-wrap items-center gap-2">
-                                        <h4 class="text-xs sm:text-sm font-extrabold text-gray-900">${step.title}</h4>
-                                    </div>
-                                    <p class="text-[11px] sm:text-xs text-gray-700 font-medium">${step.detail}</p>
-                                    <p class="text-[10px] sm:text-[11px] text-gray-500 font-normal italic">${step.target}</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-1.5 self-end md:self-center">
-                                <select onchange="updateJapanRoadmapStatus(${step.id}, this.value)" class="text-[11px] font-bold px-2 py-1 rounded-lg border ${statusBadgeClass} focus:outline-none cursor-pointer">
-                                    <option value="Belum" ${step.status === 'Belum' ? 'selected' : ''}>⏳ Belum</option>
-                                    <option value="Proses" ${step.status === 'Proses' ? 'selected' : ''}>🔄 Proses</option>
-                                    <option value="Selesai" ${step.status === 'Selesai' ? 'selected' : ''}>✅ Selesai</option>
-                                </select>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            }
-
-            const studyRoutineList = document.getElementById('studyRoutineList');
-            if (studyRoutineList) {
-                studyRoutineList.innerHTML = (state.studyRoutines || []).map(sr => `
-                    <div class="flex items-center justify-between p-2.5 rounded-xl bg-gray-900/60 border border-gray-800">
-                        <div class="flex items-center gap-2">
-                            <input type="checkbox" ${sr.done ? 'checked' : ''} onchange="toggleStudyRoutine('${sr.id}')" class="rounded border-gray-700 bg-gray-800 text-sky-500 focus:ring-0 cursor-pointer">
-                            <span class="text-xs ${sr.done ? 'line-through text-gray-500' : 'text-gray-200'}">${sr.text}</span>
-                        </div>
-                        <div class="flex items-center gap-1">
-                            <button onclick="openEditStudyRoutineModal('${sr.id}')" class="text-gray-400 hover:text-sky-400 p-1" title="Edit">
-                                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                            </button>
-                            <button onclick="deleteLog('studyRoutines', '${sr.id}')" class="text-gray-400 hover:text-rose-400 p-1" title="Hapus">
-                                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                            </button>
-                        </div>
-                    </div>
-                `).join('') || `<p class="text-xs text-gray-500 italic text-center py-4">Belum ada rutinitas belajar.</p>`;
-            }
-
-            const studyTargetList = document.getElementById('studyTargetList');
-            if (studyTargetList) {
-                const now = new Date();
-                studyTargetList.innerHTML = (state.studyTargets || []).map(st => {
-                    const diff = new Date(st.date + "T00:00:00") - now;
-                    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-                    return `
-                        <div class="glass-card rounded-xl p-3 flex justify-between items-center border border-gray-800">
-                            <div>
-                                <h4 class="text-xs font-bold text-white">${st.title}</h4>
-                                <p class="text-[11px] text-indigo-400 font-semibold mt-0.5">
-                                    Target: <span class="font-mono text-gray-300">${formatDateIndo(st.date)}</span> 
-                                    <span class="text-[10px] text-gray-400 block">${days >= 0 ? days + ' Hari lagi' : 'Lewat ' + Math.abs(days) + ' Hari'}</span>
-                                </p>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <button onclick="openEditStudyTargetModal('${st.id}')" class="text-gray-400 hover:text-indigo-400 p-1" title="Edit">
-                                    <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                                </button>
-                                <button onclick="deleteLog('studyTargets', '${st.id}')" class="text-gray-400 hover:text-rose-400 p-1" title="Hapus">
-                                    <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                }).join('') || `<p class="text-xs text-gray-500 italic text-center py-4">Belum ada target belajar.</p>`;
-            }
-        }
-
-        function updateJapanRoadmapStatus(stepId, newStatus) {
-            const step = state.japanRoadmap.find(s => s.id === stepId);
-            if (step) {
-                step.status = newStatus;
-                saveState();
-            }
-        }
-
-        function toggleStudyRoutine(id) {
-            const sr = state.studyRoutines.find(x => x.id === id);
-            if (sr) {
-                sr.done = !sr.done;
-                saveState();
-            }
-        }
-
-        function openEditStudyRoutineModal(id) {
-            const sr = state.studyRoutines.find(x => x.id === id);
-            if (!sr) return;
-            document.getElementById('editStudyRoutineId').value = sr.id;
-            document.getElementById('modalStudyRoutineTitle').innerText = 'Edit Rutinitas Belajar';
-            document.getElementById('studyRoutineText').value = sr.text || '';
-            openModal('modalStudyRoutine');
-        }
-
-        function handleStudyRoutineSubmit(e) {
-            e.preventDefault();
-            const editId = document.getElementById('editStudyRoutineId').value;
-            const text = document.getElementById('studyRoutineText').value;
-
-            if (editId) {
-                const sr = state.studyRoutines.find(x => x.id === editId);
-                if (sr) sr.text = text;
-            } else {
-                state.studyRoutines.unshift({
-                    id: 'sr-' + Date.now(),
-                    text,
-                    done: false
-                });
-            }
-            closeModal('modalStudyRoutine');
-            saveState();
-        }
-
-        function openEditStudyTargetModal(id) {
-            const st = state.studyTargets.find(x => x.id === id);
-            if (!st) return;
-            document.getElementById('editStudyTargetId').value = st.id;
-            document.getElementById('modalStudyTargetTitle').innerText = 'Edit Target Belajar';
-            document.getElementById('studyTargetTitleInput').value = st.title || '';
-            document.getElementById('studyTargetDateInput').value = st.date || '';
-            openModal('modalStudyTarget');
-        }
-
-        function handleStudyTargetSubmit(e) {
-            e.preventDefault();
-            const editId = document.getElementById('editStudyTargetId').value;
-            const title = document.getElementById('studyTargetTitleInput').value;
-            const date = document.getElementById('studyTargetDateInput').value;
-
-            if (editId) {
-                const st = state.studyTargets.find(x => x.id === editId);
-                if (st) {
-                    st.title = title;
-                    st.date = date;
-                }
-            } else {
-                state.studyTargets.unshift({
-                    id: 'st-' + Date.now(),
-                    title,
-                    date
-                });
-            }
-            closeModal('modalStudyTarget');
             saveState();
         }
 
@@ -2925,57 +1317,6 @@
         function deleteCopier(id) {
             state.textCopier = state.textCopier.filter(x => x.id !== id);
             saveState();
-        }
-
-        function renderJobs() {
-            const container = document.getElementById('jobList');
-            if(!container) return;
-            if (state.jobs.length === 0) {
-                container.innerHTML = `<p class="text-xs text-gray-500 italic col-span-2 text-center py-4">Belum ada catatan lamaran kerja.</p>`;
-                return;
-            }
-            container.innerHTML = state.jobs.map(j => `
-                <div class="glass-card rounded-2xl p-4 border border-gray-800 space-y-2.5 relative">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="text-sm sm:text-base font-bold text-white">${j.company}</h3>
-                            <p class="text-xs text-cyan-400 font-medium">Posisi: ${j.posisi || '-'}</p>
-                        </div>
-                        <div class="flex items-center gap-1">
-                            <button onclick="openEditJobModal('${j.id}')" class="text-gray-400 hover:text-cyan-400 p-1 transition" title="Edit Lamaran">
-                                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                            </button>
-                            <button onclick="deleteJob('${j.id}')" class="text-gray-400 hover:text-rose-400 p-1 transition" title="Hapus Lamaran">
-                                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-y-1.5 text-xs text-gray-300 border-t border-b border-gray-800/80 py-2.5">
-                        <div><span class="text-gray-500 block text-[10px]">Apply Kerja:</span> ${formatDateIndo(j.applyDate)}</div>
-                        <div><span class="text-gray-500 block text-[10px]">Ada Kabar:</span> ${j.kabar || '-'}</div>
-                        <div><span class="text-gray-500 block text-[10px]">Interview:</span> ${j.interview || '-'}</div>
-                        <div><span class="text-gray-500 block text-[10px]">Day 1 Kerja:</span> ${j.day1 || '-'}</div>
-                        <div class="col-span-2"><span class="text-gray-500 block text-[10px]">Gaji Pertama:</span> <span class="text-emerald-400">${j.gaji || '-'}</span></div>
-                        <div class="col-span-2"><span class="text-gray-500 block text-[10px]">Resign:</span> <span class="text-rose-400">${j.resign || '-'}</span></div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function openEditJobModal(id) {
-            const j = state.jobs.find(x => x.id === id);
-            if (!j) return;
-            document.getElementById('editJobId').value = j.id;
-            document.getElementById('modalJobTitle').innerText = 'Edit Lamaran Kerja';
-            document.getElementById('jobCompany').value = j.company || '';
-            document.getElementById('jobPos').value = j.posisi === '-' ? '' : (j.posisi || '');
-            document.getElementById('jobApply').value = j.applyDate || '';
-            document.getElementById('jobKabar').value = j.kabar || 'Tidak';
-            document.getElementById('jobInterview').value = j.interview === '-' ? '' : (j.interview || '');
-            document.getElementById('jobDay1').value = j.day1 === '-' ? '' : (j.day1 || '');
-            document.getElementById('jobGaji').value = j.gaji === '-' ? '' : (j.gaji || '');
-            document.getElementById('jobResign').value = j.resign === '-' ? '' : (j.resign || '');
-            openModal('modalJob');
         }
 
         function renderBCA() {
@@ -3298,40 +1639,6 @@
             alert('Catatan berhasil disimpan!');
         }
 
-        function handleJobSubmit(e) {
-            e.preventDefault();
-            const editId = document.getElementById('editJobId').value;
-            const company = document.getElementById('jobCompany').value;
-            const posisi = document.getElementById('jobPos').value || '-';
-            const applyDate = document.getElementById('jobApply').value;
-            const kabar = document.getElementById('jobKabar').value;
-            const interview = document.getElementById('jobInterview').value || '-';
-            const day1 = document.getElementById('jobDay1').value || '-';
-            const gaji = document.getElementById('jobGaji').value || '-';
-            const resign = document.getElementById('jobResign').value || '-';
-
-            if(editId) {
-                const j = state.jobs.find(x => x.id === editId);
-                if(j) {
-                    j.company = company;
-                    j.posisi = posisi;
-                    j.applyDate = applyDate;
-                    j.kabar = kabar;
-                    j.interview = interview;
-                    j.day1 = day1;
-                    j.gaji = gaji;
-                    j.resign = resign;
-                }
-            } else {
-                state.jobs.unshift({
-                    id: 'job-' + Date.now(),
-                    company, posisi, applyDate, kabar, interview, day1, gaji, resign
-                });
-            }
-            closeModal('modalJob');
-            saveState();
-        }
-
         function handleTagihanSubmit(e) {
             e.preventDefault();
             const editId = document.getElementById('editTagihanId').value;
@@ -3406,27 +1713,12 @@
             saveState();
         }
 
-        function deleteJob(id) {
-            state.jobs = state.jobs.filter(j => j.id !== id);
-            saveState();
-        }
-
         function deleteLog(key, id) {
             state[key] = state[key].filter(x => x.id !== id);
             saveState();
         }
 
         function renderHomeOverview() {
-            const cpnsDone = (state.cpnsRoadmap || []).filter(s => s.status === 'Selesai').length;
-            const homeCpnsText = document.getElementById('homeCpnsProgressText');
-            if(homeCpnsText) homeCpnsText.innerText = `${cpnsDone} / 18 Tahapan`;
-
-            const homeCpnsBar = document.getElementById('homeCpnsProgressBar');
-            if(homeCpnsBar) {
-                const pct = Math.round((cpnsDone / 18) * 100);
-                homeCpnsBar.style.width = `${pct}%`;
-            }
-
             const currentBeat = state.cicilanBeat || 0;
             const homeBeatProgress = document.getElementById('homeBeatProgress');
             if(homeBeatProgress) homeBeatProgress.innerText = `${currentBeat} / 33 Bulan`;
