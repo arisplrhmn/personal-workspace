@@ -56,6 +56,11 @@
             background: rgba(16, 185, 129, 0.15);
         }
 
+        .bottom-nav-btn.active-income {
+            color: #34d399;
+            background: rgba(52, 211, 153, 0.15);
+        }
+
         .bottom-nav-btn i {
             width: 1.25rem;
             height: 1.25rem;
@@ -143,6 +148,9 @@
                 <button onclick="switchTab('home')" id="tab-home" class="nav-btn active px-3.5 py-2 rounded-xl text-xs font-medium border border-gray-800 text-gray-300 flex items-center gap-1.5 transition">
                     <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Dashboard
                 </button>
+                <button onclick="switchTab('income')" id="tab-income" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-medium border border-emerald-500/40 text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 flex items-center gap-1.5 transition">
+                    <i data-lucide="trending-up" class="w-4 h-4 text-emerald-400"></i> Pendapatan
+                </button>
                 <button onclick="switchTab('sociabuzz')" id="tab-sociabuzz" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-medium border border-emerald-500/40 text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 flex items-center gap-1.5 transition">
                     <i data-lucide="coins" class="w-4 h-4 text-emerald-400"></i> SociaBuzz
                 </button>
@@ -185,7 +193,10 @@
                 </div>
                 <!-- Tombol Pintas / Quick Actions -->
                 <div class="flex items-center gap-1.5 flex-wrap">
-                    <button onclick="switchTab('sociabuzz')" class="px-2.5 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 border border-emerald-500/30 text-[11px] font-semibold flex items-center gap-1 transition">
+                    <button onclick="switchTab('income')" class="px-2.5 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 border border-emerald-500/30 text-[11px] font-semibold flex items-center gap-1 transition">
+                        <i data-lucide="trending-up" class="w-3 h-3"></i> Pendapatan
+                    </button>
+                    <button onclick="switchTab('sociabuzz')" class="px-2.5 py-1.5 rounded-xl bg-teal-500/20 text-teal-400 hover:bg-teal-500/30 border border-teal-500/30 text-[11px] font-semibold flex items-center gap-1 transition">
                         <i data-lucide="coins" class="w-3 h-3"></i> SociaBuzz
                     </button>
                     <button onclick="switchTab('copier')" class="px-2.5 py-1.5 rounded-xl bg-sky-500/20 text-sky-400 hover:bg-sky-500/30 border border-sky-500/30 text-[11px] font-semibold flex items-center gap-1 transition">
@@ -255,15 +266,59 @@
 
         </section>
 
-        <!-- ================= SOCIABUZZ MONETISASI TAB ================= -->
-        <section id="sec-sociabuzz" class="hidden space-y-4">
+        <!-- ================= PENDAPATAN TAB ================= -->
+        <section id="sec-income" class="hidden space-y-4">
             <div class="glass-card rounded-2xl p-4 sm:p-6 border border-emerald-500/30 bg-gradient-to-br from-emerald-950/20 via-gray-900/80 to-teal-950/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div class="space-y-1">
                     <div class="flex items-center gap-2">
                         <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
-                            <i data-lucide="coins" class="w-3.5 h-3.5"></i> SociaBuzz
+                            <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> Pendapatan
                         </span>
                         <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                            Pemasukan Keuangan
+                        </span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-black text-white pt-1">Catatan Pendapatan</h2>
+                    <p class="text-xs text-gray-400">Pencatatan semua arus kas uang masuk, gaji, atau proyek harian/bulanan.</p>
+                </div>
+                
+                <!-- Card Total Pendapatan -->
+                <div class="w-full sm:w-auto glass-card p-3.5 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 flex flex-col justify-center min-w-[220px]">
+                    <span class="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
+                        <i data-lucide="wallet" class="w-3.5 h-3.5"></i> Total Pendapatan
+                    </span>
+                    <span id="incomeTotalRp" class="text-2xl font-black text-white mt-1">Rp 0</span>
+                    <span id="incomeTotalCount" class="text-[10px] text-emerald-300/80 mt-0.5">0 Transaksi Pemasukan</span>
+                </div>
+            </div>
+
+            <!-- Header List Pendapatan & Tombol Tambah -->
+            <div class="flex items-center justify-between pt-1">
+                <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                    <i data-lucide="list-text" class="w-4 h-4 text-emerald-400"></i> Riwayat Pemasukan / Pendapatan
+                </h3>
+                <button onclick="openModalAddNew('modalIncome')" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-600/20 transition">
+                    <i data-lucide="plus" class="w-4 h-4"></i> Catat Pendapatan
+                </button>
+            </div>
+
+            <!-- List Transaksi Pendapatan -->
+            <div class="glass-card rounded-2xl p-4 space-y-3 border border-gray-800">
+                <div id="incomeLog" class="space-y-2.5 max-h-[65vh] overflow-y-auto pr-1">
+                    <!-- Dynamic List via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SOCIABUZZ MONETISASI TAB ================= -->
+        <section id="sec-sociabuzz" class="hidden space-y-4">
+            <div class="glass-card rounded-2xl p-4 sm:p-6 border border-teal-500/30 bg-gradient-to-br from-teal-950/20 via-gray-900/80 to-emerald-950/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-400 border border-teal-500/30 flex items-center gap-1">
+                            <i data-lucide="coins" class="w-3.5 h-3.5"></i> SociaBuzz
+                        </span>
+                        <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-teal-500/10 text-teal-300 border border-teal-500/20">
                             arisplrfifteen @ FLMSALE
                         </span>
                     </div>
@@ -272,21 +327,21 @@
                 </div>
                 
                 <!-- Card Total Semua Uang Masuk -->
-                <div class="w-full sm:w-auto glass-card p-3.5 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 flex flex-col justify-center min-w-[220px]">
-                    <span class="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
-                        <i data-lucide="wallet" class="w-3.5 h-3.5"></i> Total
+                <div class="w-full sm:w-auto glass-card p-3.5 rounded-2xl border border-teal-500/30 bg-teal-500/10 flex flex-col justify-center min-w-[220px]">
+                    <span class="text-[11px] font-semibold text-teal-400 uppercase tracking-wider flex items-center gap-1">
+                        <i data-lucide="wallet" class="w-3.5 h-3.5"></i> Total Penjualan
                     </span>
                     <span id="sociabuzzTotalRp" class="text-2xl font-black text-white mt-1">Rp 0</span>
-                    <span id="sociabuzzTotalCount" class="text-[10px] text-emerald-300/80 mt-0.5">0 Transaksi Penjualan</span>
+                    <span id="sociabuzzTotalCount" class="text-[10px] text-teal-300/80 mt-0.5">0 Transaksi Penjualan</span>
                 </div>
             </div>
 
             <!-- Header List Transaksi & Tombol Tambah -->
             <div class="flex items-center justify-between pt-1">
                 <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                    <i data-lucide="list-text" class="w-4 h-4 text-emerald-400"></i> Riwayat Penjualan arisplrfifteen @ FLMSALE
+                    <i data-lucide="list-text" class="w-4 h-4 text-teal-400"></i> Riwayat Penjualan arisplrfifteen @ FLMSALE
                 </h3>
-                <button onclick="openModalAddNew('modalSociaBuzz')" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-600/20 transition">
+                <button onclick="openModalAddNew('modalSociaBuzz')" class="px-3.5 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold text-xs flex items-center gap-1.5 shadow-lg shadow-teal-600/20 transition">
                     <i data-lucide="plus" class="w-4 h-4"></i> Catat Penjualan
                 </button>
             </div>
@@ -546,21 +601,54 @@
 
         <!-- ================= TAGIHAN & HUTANG TAB ================= -->
         <section id="sec-finance" class="hidden space-y-4">
+            
+            <!-- Summary Header Tagihan & Total -->
+            <div class="glass-card rounded-2xl p-4 border border-rose-500/20 bg-gradient-to-br from-rose-950/20 via-gray-900/80 to-amber-950/20 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                <div>
+                    <h2 class="text-base sm:text-lg font-extrabold text-white flex items-center gap-2">
+                        <i data-lucide="calculator" class="w-5 h-5 text-rose-400"></i> Ringkasan Semua Tagihan
+                    </h2>
+                    <p class="text-[11px] text-gray-400">Status kewajiban tagihan & hutang bulan ini</p>
+                </div>
+                <div class="flex items-center gap-4 flex-wrap w-full sm:w-auto">
+                    <div class="bg-gray-900/90 px-3.5 py-2 rounded-xl border border-gray-800">
+                        <span class="text-[10px] text-gray-400 block uppercase font-semibold">Total Semua Tagihan</span>
+                        <span id="totalTagihanSum" class="text-base sm:text-lg font-black text-rose-400">Rp 0</span>
+                    </div>
+                    <div class="bg-gray-900/90 px-3.5 py-2 rounded-xl border border-gray-800">
+                        <span class="text-[10px] text-gray-400 block uppercase font-semibold">Sudah Dibayar Bulan Ini</span>
+                        <span id="paidTagihanSum" class="text-base sm:text-lg font-black text-emerald-400">Rp 0</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Box Tagihan Bulanan -->
                 <div class="glass-card rounded-2xl p-4 space-y-3">
                     <div class="flex items-center justify-between">
-                        <h2 class="text-sm sm:text-base font-bold text-white">Tagihan</h2>
-                        <button onclick="openModalAddNew('modalTagihan')" class="px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs">+ Tambah</button>
+                        <div>
+                            <h2 class="text-sm sm:text-base font-bold text-white flex items-center gap-1.5">
+                                <i data-lucide="receipt" class="w-4 h-4 text-rose-400"></i> Daftar Tagihan
+                            </h2>
+                            <span class="text-[10px] text-gray-400">Centang jika sudah lunas dibayar bulan ini</span>
+                        </div>
+                        <button onclick="openModalAddNew('modalTagihan')" class="px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs transition">+ Tambah</button>
                     </div>
-                    <div id="tagihanList" class="space-y-2 max-h-64 overflow-y-auto pr-1"></div>
+                    <div id="tagihanList" class="space-y-2 max-h-80 overflow-y-auto pr-1"></div>
                 </div>
 
+                <!-- Box Hutang -->
                 <div class="glass-card rounded-2xl p-4 space-y-3">
                     <div class="flex items-center justify-between">
-                        <h2 class="text-sm sm:text-base font-bold text-white">Hutang</h2>
-                        <button onclick="openModalAddNew('modalHutang')" class="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs">+ Tambah</button>
+                        <div>
+                            <h2 class="text-sm sm:text-base font-bold text-white flex items-center gap-1.5">
+                                <i data-lucide="credit-card" class="w-4 h-4 text-amber-400"></i> Catatan Hutang
+                            </h2>
+                            <span class="text-[10px] text-gray-400">Daftar pinjaman / hutang lain</span>
+                        </div>
+                        <button onclick="openModalAddNew('modalHutang')" class="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs transition">+ Tambah</button>
                     </div>
-                    <div id="hutangList" class="space-y-2 max-h-64 overflow-y-auto pr-1"></div>
+                    <div id="hutangList" class="space-y-2 max-h-80 overflow-y-auto pr-1"></div>
                 </div>
             </div>
         </section>
@@ -621,10 +709,16 @@
                 <span>HOME</span>
             </button>
 
-            <!-- Navigasi SociaBuzz Monetisasi Warna Hijau -->
-            <button onclick="switchTab('sociabuzz')" id="bottom-tab-sociabuzz" class="bottom-nav-btn text-emerald-400">
-                <i data-lucide="coins" class="text-emerald-400"></i>
-                <span class="text-emerald-400 font-bold">SociaBuzz</span>
+            <!-- Navigasi Pendapatan Warna Hijau Terang -->
+            <button onclick="switchTab('income')" id="bottom-tab-income" class="bottom-nav-btn text-emerald-400">
+                <i data-lucide="trending-up" class="text-emerald-400"></i>
+                <span class="text-emerald-400 font-bold">Pendapatan</span>
+            </button>
+
+            <!-- Navigasi SociaBuzz Monetisasi Warna Teal -->
+            <button onclick="switchTab('sociabuzz')" id="bottom-tab-sociabuzz" class="bottom-nav-btn text-teal-400">
+                <i data-lucide="coins" class="text-teal-400"></i>
+                <span class="text-teal-400 font-bold">SociaBuzz</span>
             </button>
 
             <!-- Navigasi Lainnya -->
@@ -667,30 +761,59 @@
 
     <!-- ================= MODALS ================= -->
 
+    <!-- Modal Pendapatan Baru -->
+    <div id="modalIncome" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-emerald-500/40">
+            <h3 id="modalIncomeTitle" class="text-base font-bold text-white flex items-center gap-2">
+                <i data-lucide="trending-up" class="w-4 h-4 text-emerald-400"></i> Catat Pendapatan Baru
+            </h3>
+            <p class="text-[11px] text-gray-400">Catat transaksi penerimaan uang masuk / gaji / pemasukan proyek.</p>
+            <form onsubmit="handleIncomeSubmit(event)" class="space-y-2.5">
+                <input type="hidden" id="editIncomeId">
+                <div>
+                    <label class="text-[10px] text-gray-400 block mb-1">Judul / Sumber Pendapatan</label>
+                    <input type="text" id="incTitle" placeholder="Contoh: Gaji Bulanan / Project Web" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="text-[10px] text-gray-400 block mb-1">Nominal Pendapatan (Rp)</label>
+                    <input type="number" id="incNominal" placeholder="Contoh: 1500000" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="text-[10px] text-gray-400 block mb-1">Tanggal Terima</label>
+                    <input type="date" id="incDate" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
+                    <button type="button" onclick="closeModal('modalIncome')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
+                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-lg shadow-emerald-600/20">Simpan Pendapatan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Modal SociaBuzz Monetisasi -->
     <div id="modalSociaBuzz" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-emerald-500/40">
+        <div class="glass-card rounded-2xl max-w-sm w-full p-5 space-y-3 border border-teal-500/40">
             <h3 id="modalSociaBuzzTitle" class="text-base font-bold text-white flex items-center gap-2">
-                <i data-lucide="coins" class="w-4 h-4 text-emerald-400"></i> Catat Penjualan SociaBuzz
+                <i data-lucide="coins" class="w-4 h-4 text-teal-400"></i> Catat Penjualan SociaBuzz
             </h3>
             <p class="text-[11px] text-gray-400">Catat transaksi penjualan arisplrfifteen @ FLMSALE yang masuk ke rekening Anda.</p>
             <form onsubmit="handleSociaBuzzSubmit(event)" class="space-y-2.5">
                 <input type="hidden" id="editSociaBuzzId">
                 <div>
                     <label class="text-[10px] text-gray-400 block mb-1">Judul Penjualan / Item</label>
-                    <input type="text" id="sbTitle" placeholder="Contoh: Film / Content FLMSALE #12" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                    <input type="text" id="sbTitle" placeholder="Contoh: Film / Content FLMSALE #12" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-teal-500">
                 </div>
                 <div>
                     <label class="text-[10px] text-gray-400 block mb-1">Nominal Uang Masuk Ke Rekening (Rp)</label>
-                    <input type="number" id="sbNominal" placeholder="Contoh: 50000" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                    <input type="number" id="sbNominal" placeholder="Contoh: 50000" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-teal-500">
                 </div>
                 <div>
                     <label class="text-[10px] text-gray-400 block mb-1">Tanggal Transaksi</label>
-                    <input type="date" id="sbDate" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                    <input type="date" id="sbDate" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-teal-500">
                 </div>
                 <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
                     <button type="button" onclick="closeModal('modalSociaBuzz')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
-                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-lg shadow-emerald-600/20">Simpan Penjualan</button>
+                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-semibold shadow-lg shadow-teal-600/20">Simpan Penjualan</button>
                 </div>
             </form>
         </div>
@@ -794,11 +917,17 @@
             <h3 id="modalTagihanTitle" class="text-base font-bold text-white">Catat Tagihan</h3>
             <form onsubmit="handleTagihanSubmit(event)" class="space-y-2.5">
                 <input type="hidden" id="editTagihanId">
-                <input type="text" id="tagihanTitle" placeholder="Nama Tagihan" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                <input type="text" id="tagihanNominal" placeholder="Nominal / Keterangan" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
+                <div>
+                    <label class="text-[10px] text-gray-400 block mb-1">Nama Tagihan</label>
+                    <input type="text" id="tagihanTitle" placeholder="Contoh: Wifi / Cicilan Beat" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-rose-500">
+                </div>
+                <div>
+                    <label class="text-[10px] text-gray-400 block mb-1">Nominal Tagihan (Rp)</label>
+                    <input type="number" id="tagihanNominal" placeholder="Contoh: 838000" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-rose-500">
+                </div>
                 <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
                     <button type="button" onclick="closeModal('modalTagihan')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
-                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-semibold">Simpan</button>
+                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-semibold">Simpan Tagihan</button>
                 </div>
             </form>
         </div>
@@ -810,11 +939,17 @@
             <h3 id="modalHutangTitle" class="text-base font-bold text-white">Catat Hutang Pribadi</h3>
             <form onsubmit="handleHutangSubmit(event)" class="space-y-2.5">
                 <input type="hidden" id="editHutangId">
-                <input type="text" id="hutangTitle" placeholder="Keterangan / Kepada" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
-                <input type="text" id="hutangNominal" placeholder="Nominal Rp / Keterangan" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white">
+                <div>
+                    <label class="text-[10px] text-gray-400 block mb-1">Keterangan / Kepada</label>
+                    <input type="text" id="hutangTitle" placeholder="Pinjaman / Ke Fulan" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                    <label class="text-[10px] text-gray-400 block mb-1">Nominal (Rp)</label>
+                    <input type="number" id="hutangNominal" placeholder="Nominal Rp" required class="w-full bg-gray-900 border border-gray-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
+                </div>
                 <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-800">
                     <button type="button" onclick="closeModal('modalHutang')" class="px-3.5 py-1.5 rounded-xl bg-gray-800 text-gray-300 text-xs">Batal</button>
-                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-amber-600 text-white text-xs font-semibold">Simpan</button>
+                    <button type="submit" class="px-3.5 py-1.5 rounded-xl bg-amber-600 text-white text-xs font-semibold">Simpan Hutang</button>
                 </div>
             </form>
         </div>
@@ -914,7 +1049,7 @@
             cuciLogs: [],
             bcaLogs: [{ id: "bca-1", date: "2026-10-01", nominal: 10000, note: "Admin Bulanan BCA" }],
             tokenLogs: [{ id: "tok-1", date: "2026-10-15", nominal: 50000, source: "Shopee" }],
-            tagihan: [{ id: "t-1", title: "Cicilan Beat", amount: "Rp 838.000 / bln" }],
+            tagihan: [{ id: "t-1", title: "Cicilan Beat", amount: 838000, isPaidThisMonth: false }],
             hutang: [],
             countdowns: [{ id: "cd-1", title: "Tahun Baru 2027", date: "2027-01-01" }],
             textCopier: [
@@ -924,6 +1059,9 @@
             generalNotes: "Catatan Pribadi arisplrhmn.",
             sociabuzzLogs: [
                 { id: "sb-1", title: "Penjualan arisplrfifteen @ FLMSALE Pack #1", nominal: 150000, date: "2026-10-25" }
+            ],
+            incomeLogs: [
+                { id: "inc-1", title: "Gaji Utama", nominal: 3500000, date: "2026-11-01" }
             ]
         };
 
@@ -932,7 +1070,7 @@
         // Fallback state jika properti belum ada
         if(!state.bcaLogs) state.bcaLogs = [];
         if(!state.tokenLogs) state.tokenLogs = [];
-        if(!state.tagihan) state.tagihan = [];
+        if(!state.tagihan) state.tagihan = defaultData.tagihan;
         if(!state.hutang) state.hutang = [];
         if(!state.countdowns) state.countdowns = [];
         if(!state.textCopier) state.textCopier = defaultData.textCopier;
@@ -943,6 +1081,25 @@
         if(!state.pajakTahunanDate) state.pajakTahunanDate = "2027-01-01";
         if(!state.pajak5TahunanDate) state.pajak5TahunanDate = "2030-01-01";
         if(!state.sociabuzzLogs) state.sociabuzzLogs = defaultData.sociabuzzLogs;
+        if(!state.incomeLogs) state.incomeLogs = defaultData.incomeLogs;
+
+        // Ensure legacy string amounts in tagihan convert safely to numbers
+        state.tagihan.forEach(item => {
+            if (typeof item.amount === 'string') {
+                const cleaned = item.amount.replace(/[^0-9]/g, '');
+                item.amount = cleaned ? parseInt(cleaned, 10) : 0;
+            }
+            if (typeof item.isPaidThisMonth === 'undefined') {
+                item.isPaidThisMonth = false;
+            }
+        });
+
+        state.hutang.forEach(item => {
+            if (typeof item.nominal === 'string') {
+                const cleaned = item.nominal.replace(/[^0-9]/g, '');
+                item.nominal = cleaned ? parseInt(cleaned, 10) : 0;
+            }
+        });
 
         function saveState() {
             localStorage.setItem('arisplrhmn_projects_db', JSON.stringify(state));
@@ -970,7 +1127,7 @@
         }
 
         function switchTab(tabId) {
-            ['home', 'sociabuzz', 'vehicle', 'bca', 'token', 'finance', 'countdown', 'notes_free', 'copier'].forEach(t => {
+            ['home', 'income', 'sociabuzz', 'vehicle', 'bca', 'token', 'finance', 'countdown', 'notes_free', 'copier'].forEach(t => {
                 const sec = document.getElementById(`sec-${t}`);
                 const tab = document.getElementById(`tab-${t}`);
                 const bTab = document.getElementById(`bottom-tab-${t}`);
@@ -979,6 +1136,7 @@
                 if(bTab) {
                     bTab.classList.remove('active');
                     bTab.classList.remove('active-sociabuzz');
+                    bTab.classList.remove('active-income');
                 }
             });
 
@@ -989,7 +1147,9 @@
             if(targetSec) targetSec.classList.remove('hidden');
             if(targetTab) targetTab.classList.add('active');
             if(targetBTab) {
-                if(tabId === 'sociabuzz') {
+                if(tabId === 'income') {
+                    targetBTab.classList.add('active-income');
+                } else if(tabId === 'sociabuzz') {
                     targetBTab.classList.add('active-sociabuzz');
                 } else {
                     targetBTab.classList.add('active');
@@ -999,6 +1159,14 @@
         }
 
         function openModal(modalId) {
+            if(modalId === 'modalIncome') {
+                if (!document.getElementById('editIncomeId').value) {
+                    document.getElementById('modalIncomeTitle').innerText = 'Catat Pendapatan Baru';
+                    document.getElementById('incTitle').value = '';
+                    document.getElementById('incNominal').value = '';
+                    document.getElementById('incDate').value = new Date().toISOString().split('T')[0];
+                }
+            }
             if(modalId === 'modalSociaBuzz') {
                 if (!document.getElementById('editSociaBuzzId').value) {
                     document.getElementById('modalSociaBuzzTitle').innerText = 'Catat Penjualan SociaBuzz';
@@ -1093,6 +1261,7 @@
         }
 
         function openModalAddNew(modalId) {
+            if (modalId === 'modalIncome') document.getElementById('editIncomeId').value = '';
             if (modalId === 'modalSociaBuzz') document.getElementById('editSociaBuzzId').value = '';
             if (modalId === 'modalAddCopier') document.getElementById('editCopierId').value = '';
             if (modalId === 'modalToken') document.getElementById('editTokenId').value = '';
@@ -1114,6 +1283,7 @@
 
         function renderApp() {
             renderHomeOverview();
+            renderIncome();
             renderSociaBuzz();
             renderVehicleStats();
             renderVehicleLogs();
@@ -1124,6 +1294,96 @@
             renderNotes();
             renderCopier();
             lucide.createIcons();
+        }
+
+        /* ================= PENDAPATAN TAB LOGIC ================= */
+        function renderIncome() {
+            const logs = state.incomeLogs || [];
+            const count = logs.length;
+            const totalNominal = logs.reduce((acc, item) => acc + Number(item.nominal || 0), 0);
+
+            const totalRpEl = document.getElementById('incomeTotalRp');
+            if (totalRpEl) totalRpEl.innerText = `Rp ${totalNominal.toLocaleString('id-ID')}`;
+
+            const countEl = document.getElementById('incomeTotalCount');
+            if (countEl) countEl.innerText = `${count} Transaksi Pemasukan`;
+
+            const logContainer = document.getElementById('incomeLog');
+            if (!logContainer) return;
+
+            if (logs.length === 0) {
+                logContainer.innerHTML = `<p class="text-xs text-gray-500 italic text-center py-6">Belum ada catatan pendapatan.</p>`;
+                return;
+            }
+
+            logContainer.innerHTML = logs.map(inc => `
+                <div class="glass-card rounded-2xl p-4 border border-emerald-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-emerald-500/40 transition">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                                Pemasukan
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-white">${inc.title}</h4>
+                        <div class="flex flex-wrap items-center gap-3 pt-1 text-xs">
+                            <span class="text-emerald-400 font-extrabold text-sm sm:text-base">
+                                + Rp ${Number(inc.nominal).toLocaleString('id-ID')}
+                            </span>
+                            <span class="text-gray-400 font-medium text-[11px] flex items-center gap-1 bg-gray-900/80 px-2.5 py-1 rounded-lg border border-gray-800">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> ${formatDateIndo(inc.date)}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 self-end sm:self-center">
+                        <button onclick="openEditIncomeModal('${inc.id}')" class="px-3 py-1.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-emerald-400 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1 transition" title="Edit Pendapatan">
+                            <i data-lucide="edit-3" class="w-3.5 h-3.5"></i> Edit
+                        </button>
+                        <button onclick="deleteLog('incomeLogs', '${inc.id}')" class="px-3 py-1.5 rounded-xl bg-gray-800 hover:bg-rose-950/40 text-rose-400 border border-rose-500/30 text-xs font-semibold flex items-center gap-1 transition" title="Hapus Pendapatan">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> Hapus
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        function openEditIncomeModal(id) {
+            const inc = (state.incomeLogs || []).find(x => x.id === id);
+            if (!inc) return;
+            document.getElementById('editIncomeId').value = inc.id;
+            document.getElementById('modalIncomeTitle').innerText = 'Edit Catatan Pendapatan';
+            document.getElementById('incTitle').value = inc.title || '';
+            document.getElementById('incNominal').value = inc.nominal || '';
+            document.getElementById('incDate').value = inc.date || new Date().toISOString().split('T')[0];
+            openModal('modalIncome');
+        }
+
+        function handleIncomeSubmit(e) {
+            e.preventDefault();
+            const editId = document.getElementById('editIncomeId').value;
+            const title = document.getElementById('incTitle').value;
+            const nominal = Number(document.getElementById('incNominal').value);
+            const date = document.getElementById('incDate').value;
+
+            if (editId) {
+                const inc = state.incomeLogs.find(x => x.id === editId);
+                if (inc) {
+                    inc.title = title;
+                    inc.nominal = nominal;
+                    inc.date = date;
+                }
+            } else {
+                state.incomeLogs.unshift({
+                    id: 'inc-' + Date.now(),
+                    title,
+                    nominal,
+                    date
+                });
+            }
+
+            closeModal('modalIncome');
+            saveState();
         }
 
         /* ================= SOCIABUZZ MONETISASI LOGIC ================= */
@@ -1147,25 +1407,25 @@
             }
 
             logContainer.innerHTML = logs.map(sb => `
-                <div class="glass-card rounded-2xl p-4 border border-emerald-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-emerald-500/40 transition">
+                <div class="glass-card rounded-2xl p-4 border border-teal-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-teal-500/40 transition">
                     <div class="space-y-1">
                         <div class="flex items-center gap-2">
-                            <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                            <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-400 border border-teal-500/30">
                                 arisplrfifteen @ FLMSALE
                             </span>
                         </div>
                         <h4 class="text-sm font-bold text-white">${sb.title}</h4>
                         <div class="flex flex-wrap items-center gap-3 pt-1 text-xs">
-                            <span class="text-emerald-400 font-extrabold text-sm sm:text-base">
+                            <span class="text-teal-400 font-extrabold text-sm sm:text-base">
                                 + Rp ${Number(sb.nominal).toLocaleString('id-ID')}
                             </span>
                             <span class="text-gray-400 font-medium text-[11px] flex items-center gap-1 bg-gray-900/80 px-2.5 py-1 rounded-lg border border-gray-800">
-                                <i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> ${formatDateIndo(sb.date)}
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-400"></i> ${formatDateIndo(sb.date)}
                             </span>
                         </div>
                     </div>
                     <div class="flex items-center gap-2 self-end sm:self-center">
-                        <button onclick="openEditSociaBuzzModal('${sb.id}')" class="px-3 py-1.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-emerald-400 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1 transition" title="Edit Penjualan">
+                        <button onclick="openEditSociaBuzzModal('${sb.id}')" class="px-3 py-1.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-teal-400 border border-teal-500/30 text-xs font-semibold flex items-center gap-1 transition" title="Edit Penjualan">
                             <i data-lucide="edit-3" class="w-3.5 h-3.5"></i> Edit
                         </button>
                         <button onclick="deleteLog('sociabuzzLogs', '${sb.id}')" class="px-3 py-1.5 rounded-xl bg-gray-800 hover:bg-rose-950/40 text-rose-400 border border-rose-500/30 text-xs font-semibold flex items-center gap-1 transition" title="Hapus Penjualan">
@@ -1456,13 +1716,28 @@
         }
 
         function renderFinance() {
+            // Calculate totals for Tagihan & Paid Status
+            const totalTagihan = (state.tagihan || []).reduce((acc, t) => acc + Number(t.amount || 0), 0);
+            const paidTagihan = (state.tagihan || []).filter(t => t.isPaidThisMonth).reduce((acc, t) => acc + Number(t.amount || 0), 0);
+
+            const totalTagihanEl = document.getElementById('totalTagihanSum');
+            if (totalTagihanEl) totalTagihanEl.innerText = `Rp ${totalTagihan.toLocaleString('id-ID')}`;
+
+            const paidTagihanEl = document.getElementById('paidTagihanSum');
+            if (paidTagihanEl) paidTagihanEl.innerText = `Rp ${paidTagihan.toLocaleString('id-ID')}`;
+
             const tagihanList = document.getElementById('tagihanList');
             if(tagihanList) {
                 tagihanList.innerHTML = (state.tagihan || []).map(t => `
-                    <div class="glass-card rounded-xl p-3 flex justify-between items-center border border-gray-800">
-                        <div>
-                            <h4 class="text-xs font-bold text-white">${t.title}</h4>
-                            <p class="text-[11px] text-rose-400 font-semibold">${t.amount}</p>
+                    <div class="glass-card rounded-xl p-3 flex justify-between items-center border ${t.isPaidThisMonth ? 'border-emerald-500/40 bg-emerald-950/10' : 'border-gray-800'} transition">
+                        <div class="flex items-center gap-3">
+                            <input type="checkbox" ${t.isPaidThisMonth ? 'checked' : ''} onchange="toggleTagihanPaid('${t.id}')" class="w-4 h-4 rounded accent-emerald-500 cursor-pointer">
+                            <div>
+                                <h4 class="text-xs font-bold ${t.isPaidThisMonth ? 'line-through text-gray-400' : 'text-white'}">${t.title}</h4>
+                                <p class="text-[11px] font-semibold ${t.isPaidThisMonth ? 'text-emerald-400' : 'text-rose-400'}">
+                                    Rp ${Number(t.amount).toLocaleString('id-ID')} ${t.isPaidThisMonth ? '<span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded ml-1 font-normal">Lunas Bulan Ini</span>' : ''}
+                                </p>
+                            </div>
                         </div>
                         <div class="flex items-center gap-1">
                             <button onclick="openEditTagihanModal('${t.id}')" class="text-gray-400 hover:text-cyan-400 p-1" title="Edit Tagihan">
@@ -1482,7 +1757,7 @@
                     <div class="glass-card rounded-xl p-3 flex justify-between items-center border border-gray-800">
                         <div>
                             <h4 class="text-xs font-bold text-white">${h.title}</h4>
-                            <p class="text-[11px] text-amber-400 font-semibold">${h.nominal}</p>
+                            <p class="text-[11px] text-amber-400 font-semibold">Rp ${Number(h.nominal).toLocaleString('id-ID')}</p>
                         </div>
                         <div class="flex items-center gap-1">
                             <button onclick="openEditHutangModal('${h.id}')" class="text-gray-400 hover:text-cyan-400 p-1" title="Edit Hutang">
@@ -1494,6 +1769,14 @@
                         </div>
                     </div>
                 `).join('') || `<p class="text-xs text-gray-500 italic text-center py-3">Belum ada catatan hutang.</p>`;
+            }
+        }
+
+        function toggleTagihanPaid(id) {
+            const item = (state.tagihan || []).find(t => t.id === id);
+            if (item) {
+                item.isPaidThisMonth = !item.isPaidThisMonth;
+                saveState();
             }
         }
 
@@ -1643,7 +1926,7 @@
             e.preventDefault();
             const editId = document.getElementById('editTagihanId').value;
             const title = document.getElementById('tagihanTitle').value;
-            const amount = document.getElementById('tagihanNominal').value;
+            const amount = Number(document.getElementById('tagihanNominal').value);
 
             if(editId) {
                 const t = state.tagihan.find(x => x.id === editId);
@@ -1654,7 +1937,9 @@
             } else {
                 state.tagihan.unshift({
                     id: 'tg-' + Date.now(),
-                    title, amount
+                    title,
+                    amount,
+                    isPaidThisMonth: false
                 });
             }
             closeModal('modalTagihan');
@@ -1665,7 +1950,7 @@
             e.preventDefault();
             const editId = document.getElementById('editHutangId').value;
             const title = document.getElementById('hutangTitle').value;
-            const nominal = document.getElementById('hutangNominal').value;
+            const nominal = Number(document.getElementById('hutangNominal').value);
 
             if(editId) {
                 const h = state.hutang.find(x => x.id === editId);
@@ -1676,7 +1961,8 @@
             } else {
                 state.hutang.unshift({
                     id: 'h-' + Date.now(),
-                    title, nominal
+                    title,
+                    nominal
                 });
             }
             closeModal('modalHutang');
